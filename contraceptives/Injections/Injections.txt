@@ -1,5 +1,3 @@
-https://www.betterhealth.vic.gov.au/health/HealthyLiving/contraception-injections-for-women
-
 Is the contraceptive injection effective? Each injection is successful at preventing pregnancy
 for more than 99 percent of the time and lasts for 12 to 14 weeks. If the injection is postponed,
 its effectiveness will be diminished.
@@ -36,3 +34,5 @@ What else should I know about the contraceptive injection?
 The contraceptive injection does not protect you from sexually
 transmissible infections . The contraceptive injection is one of
 many types of contraception.
+
+Reference: https://www.betterhealth.vic.gov.au/health/HealthyLiving/contraception-injections-for-women

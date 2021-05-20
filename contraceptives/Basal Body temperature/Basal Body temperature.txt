@@ -1,7 +1,4 @@
-https://healthengine.com.au/info/basal-body-temperature-monitoring-contraceptive-method#:~:text=Basal%20body%20temperature%20monitoring%20is%2099%25%20effective%20in%20the%20first,(including%20during%20menstrual%20bleeding).
-
-
-How does the basal body temperature monitoring method work?
+<b>How does the basal body temperature monitoring method work?</b>
 
 The basal body temperature monitoring method works by enabling women to determine the fertile
 and infertile periods of their menstrual cycle and avoid sex during the fertile stages.
@@ -18,12 +15,12 @@ temperature occurs. Because there is no temperature change to indicate the begin
 it is necessary for a woman to avoid sex without contraception, from the beginning of her menstrual
 bleeding until her temperature drops.
 
-Indications and contraindications
+<b>Indications and contraindications</b>
 
 Women with conditions affecting their body temperature must therefore use an alternative form of
 contraception or abstain from sexual intercourse until their body temperature stabilises.
 
-Using the basal body temperature monitoring contraceptive method
+<b>Using the basal body temperature monitoring contraceptive method</b>
 
 Women may wish to take their partner to the GP or family planning clinic so that they can receive
 information about the basal body temperature monitoring method from a health professional.
@@ -33,3 +30,5 @@ for example condoms or a diaphragm . Women using the basal body temperature moni
 also be aware that taking emergency contraception following unprotected sex substantially reduces the
 risk of pregnancy. Women who choose to use this method must also take care to learn how to monitor and
 chart their basal body temperature correctly.
+
+Reference: https://healthengine.com.au/info/basal-body-temperature-monitoring-contraceptive-method

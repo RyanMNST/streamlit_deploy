@@ -1,7 +1,3 @@
-https://www.mayoclinic.org/tests-procedures/cervical-mucus-method/about/pac-20393452#:~:text=It%27s%20estimated%20that%20as%20many,of%20100%20women%20a%20year.
-
-
-
 In the first year of normal use, as many as 23 out of 100 women using the cervical mucus method
 for birth control would become pregnant. With perfect use, the annual pregnancy rate may be as
 low as three out of every 100 women.
@@ -31,3 +27,5 @@ method of contraception during your period because it's difficult to detect cerv
 secretions when they're mixed with menstrual blood. Interpreting and charting cervical
 secretions can be challenging. Most women need more than one instructional session to
 recognize the pattern of secretions in a typical menstrual cycle.
+
+Reference: https://www.mayoclinic.org/tests-procedures/cervical-mucus-method/about/pac-20393452

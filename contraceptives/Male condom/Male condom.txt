@@ -1,12 +1,7 @@
-https://www.nhs.uk/conditions/contraception/male-condoms/#:~:text=When%20used%20correctly%20every%20time,clinics%20and%20some%20GP%20surgeries.
-
-
-
 Male condoms are 98 percent successful when properly used any time you have sex.
 When male condoms are used as contraceptives, this translates to 2 out of 100 women
 being pregnant in a year. Concealment clinics, reproductive wellbeing clinics, and some
 GP surgeries all have free condoms.
-
 
 How a condom works
 
@@ -24,3 +19,5 @@ with polyurethane condoms that are not made of latex.
 Condoms with spermicide
 
 Some condoms come with spermicide on them.
+
+Reference: https://www.nhs.uk/conditions/contraception/male-condoms

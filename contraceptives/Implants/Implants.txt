@@ -1,6 +1,3 @@
-https://pubmed.ncbi.nlm.nih.gov/12283720/#:~:text=With%20at%20least%20a%2099,a%20continuous%20low-dose%20protection.
-
-
 Data compiled from 16 years of clinical and field studies indicate that NORPLANT is
 not only safe and long-acting, it is also the most effective current reversible contraceptive method.
 With at least a 99% rate of effectiveness, NORPLANT is more successful in preventing pregnancies than
@@ -12,3 +9,5 @@ While not medically harmful, these irregularities can prove problematic for some
 certain cultures. Despite these drawbacks, continuation rates for NORPLANT have been high.
 While many questions remain as to its long-term benefits and risks, NORPLANT seems well-suited
 for women who wish to space their children or who which to avoid sterilization.
+
+Reference: https://pubmed.ncbi.nlm.nih.gov/12283720/

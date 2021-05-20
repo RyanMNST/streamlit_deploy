@@ -10,7 +10,6 @@ import pickle
 from PIL import Image
 from pathlib import Path
 
-
 # Classifer Library
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -23,6 +22,7 @@ import category_encoders as ce
 #Cosine Similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+
 
 # ============================================================
 # Result Function : Cosine Similarity Implementation
@@ -56,6 +56,7 @@ def cosine_implementation(user_data):
     user_data = vectorizer.transform(user_data).toarray()
     index = np.argmax(cosine_similarity(trsfm, user_data))
     return another_df.iloc[index]['Current contraceptive method']
+
 
 # ============================================================
 # Result Function : Random Forest Implementation
@@ -153,7 +154,7 @@ def show_result(contraceptive_result):
     lines = text_path.read_text()
     f_lines = lines.encode('cp1252')
     # lines = f_lines.decode('UTF-8')
-    lines = f_lines.decode('utf8')
+    lines = f_lines.decode('ISO 8859-1')
 
     st.markdown("<h1 style='text-align: center; color: black;'>"+contraceptive_result+"</h1>", unsafe_allow_html=True)
     st.markdown("<img src='"+img_url+"' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
@@ -161,7 +162,7 @@ def show_result(contraceptive_result):
 
 
 st.write("""
-# System Web Application Version
+# Finals System Web Application Version
 A [CS 321 | CS 322] Project
 """)
 

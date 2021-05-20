@@ -1,6 +1,3 @@
-https://www.plannedparenthood.org/learn/birth-control/vasectomy/how-effective-vasectomy
-
-
 It’s almost 100% effective at preventing pregnancy.
 
 It takes about 3 months for your semen to become sperm-free.
@@ -21,3 +18,5 @@ No, a vasectomy won’t protect you or your partners from sexually transmitted i
 Semen can still carry STDs, even if it doesn’t contain sperm.
 
 Use a condom to help stop STDs.
+
+Reference: https://www.plannedparenthood.org/learn/birth-control/vasectomy/how-effective-vasectomy

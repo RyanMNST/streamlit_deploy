@@ -1,5 +1,3 @@
-https://irh.org/standard-days-method/
-
 SDM was found to be more than 95 percent
 effective with proper use and 88 percent
 effective with normal use in an efficacy trial.
@@ -29,3 +27,5 @@ between 26 and 32 days long. Women who have cycles shorter than 26 days or
 longer than 32 days are not good candidates for this method. Also, women who
 would not be able to avoid unprotected intercourse on the days they might get
 pregnant are not likely to be successful using this method.
+
+Reference: https://irh.org/standard-days-method/
