@@ -11,6 +11,7 @@ st.write("""
 A [CS 321 | CS 322] Project
 """)
 
+
 # Residential Status Features
 st.markdown("**Residential Status Features**")
 rs_1, rs_2 = st.beta_columns(2)
@@ -76,6 +77,7 @@ with a_3:
     max_value=49,
 )
 
+
 # Sexual Activity Information Features
 st.markdown("**Sexual Activity Information Features**")
 recent_sex_act = st.selectbox(
@@ -98,4 +100,64 @@ husband_desire = st.selectbox(
         "Husband wants fewer",
         ],
     index=0
+)
+
+# Status of Woman and Pregnancy
+
+# Recent Births
+
+# Decision on Contraception
+
+# Do you smoke/indulge in the following?
+st.markdown("**Vices Features**")
+st.radio(
+    label="Cigarettes",
+    options=['Yes', 'No'],
+    index=1
+)
+
+# Unmet Needs
+st.markdown("**Unmet Needs Features**")
+unmet_need_1 = st.selectbox(
+    label="Unmet Need (1)", 
+    options=[
+        'Using for spacing', 
+        'No unmet need', 
+        '99', 
+        'Using for limiting', 
+        'Not married and no sex in last 30 days',
+        'Unmet need for spacing', 
+        'Infecund, menopausal', 
+        'Unmet need for limiting'
+        ],
+    index=1
+)
+
+unmet_need_2 = st.selectbox(
+    label="Unmet Need (2)",
+    options=[
+        'Using for spacing', 
+        'No unmet need', 
+        'Infecund, menopausal', 
+        'Using for limiting',
+        'Not married and no sex in last 30 days', 
+        'Unmet need for spacing', 
+        'Unmet need for limiting'
+        ],
+    index=1
+)
+
+unmet_need_3 = st.selectbox(
+    label="Unmet Need (3)", 
+    options=[
+        'Using for spacing', 
+        'No unmet need', 
+        '99', 
+        'Using for limiting', 
+        'Not married and no sex in last 30 days',
+        'Unmet need for spacing', 
+        'Infecund, menopausal', 
+        'Unmet need for limiting'
+        ],
+    index=1
 )
