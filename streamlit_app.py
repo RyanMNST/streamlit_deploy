@@ -20,6 +20,41 @@ from sklearn.metrics import classification_report
 from sklearn.metrics.pairwise import cosine_similarity
 import category_encoders as ce
 
+#Cosine Similarity
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+# ============================================================
+# Result Function : Cosine Similarity Implementation
+def cosine_implementation(user_data):
+    m_path = Path(__file__).parent.parent
+    path = m_path.joinpath('dataset/clean_data.csv')
+    df = pd.read_csv(str(path))
+
+    df = df.loc[df['Current contraceptive method'] != 'Not using']
+    df.drop(columns=['Unnamed: 0'], axis=1)
+    another_df = pd.read_csv(str(path))
+    another_df = another_df.loc[another_df['Current contraceptive method'] != 'Not using']
+    another_df['Current contraceptive method'] = another_df['Current contraceptive method'].replace('Calendar or rhythm method/Periodic abstinence', 'Periodic abstinence', regex=True)
+    another_df['Current contraceptive method'] = another_df['Current contraceptive method'].replace('Implants/Norplant', 'Implants', regex=True)
+    another_df['Current contraceptive method'] = another_df['Current contraceptive method'].replace('Mucus/Billing/Ovulation', 'Ovulation', regex=True)
+
+    vectorizer = TfidfVectorizer()
+    #convert all columns to str
+    for column_name in df.columns:
+        df[column_name] = df[column_name].astype(str)
+
+    for column_name in user_data.columns:
+        user_data[column_name] = user_data[column_name].astype(str)
+
+    corp = df.to_numpy()
+    corpus = corp.flatten().tolist()
+    trsfm = vectorizer.fit_transform(corpus)
+    user_data = user_data.values.flatten().tolist()
+    user_data = vectorizer.transform(user_data).toarray()
+    index = np.argmax(cosine_similarity(trsfm, user_data))
+    return another_df.iloc[index]['Current contraceptive method']
+
 # ============================================================
 # Result Function : Random Forest Implementation
 def predict(user_data):
@@ -470,8 +505,10 @@ with st.form("Counseling_Form"):
         index=1
     )
 
-    submit_button = st.form_submit_button(label="Submit Information")
-    if submit_button:
+    submit_button_DS = st.form_submit_button(label="Submit Information - Random Forest")
+    submit_button_AI = st.form_submit_button(label="Submit Information - Cosine Similarity")
+
+    if submit_button_DS:
         st.write("Your suggested contraceptive is...")
 
         user_df = pd.DataFrame({
@@ -509,4 +546,41 @@ with st.form("Counseling_Form"):
         # Show prediction
         result_holder = predict(user_df)
         show_result(result_holder)
-        
+    elif submit_button_AI:
+        st.write("Your suggested contraceptive is...")
+
+        user_df = pd.DataFrame({
+            "Respondent's current age":[current_age],
+            'Age of respondent at 1st birth':[age_first_birth],
+            'Age at first menstrual period':[age_first_period],
+            'Recent sexual activity':[recent_sex_act],
+            'Region':[residential_status],
+            'Type of place of residence':[rural_area],
+            'Current marital status':[rb_1],
+            'Births in last five years':[rb_2],
+            'Births in last three years':[rb_3],
+            'Births in past year':[rb_4],
+            'Currently pregnant':[swp_2],
+            'Total number all pregnacies':[swp_3],
+            'Decision maker for using contraception':[dc_1],
+            'Decision maker for not using contraception':[dc_2],
+            'Preferred future method':[dc_3],
+            'Smokes cigarettes':[vice_1],
+            'Smokes pipe full of tobacco':[vice_4],
+            'Chews tobacco':[vice_7],
+            'Snuffs by nose':[vice_2],
+            'Smokes kreteks':[vice_5],
+            'Smokes cigars, cheroots or cigarillos':[vice_8],
+            'Smokes water pipe':[vice_3],
+            'Snuff by mouth':[vice_6],
+            'Chews betel quid with tobacco':[vice_9],
+            "Husband's desire for children":[husband_desire],
+            'Exposure':[swp_1],
+            'Unmet need':[unmet_need_1],
+            'Unmet need (definition 2)':[unmet_need_2],
+            'Unmet need for contraception (definition 3)':[unmet_need_3],
+        })
+
+        # Show prediction
+        result_holder = cosine_implementation(user_df)
+        show_result(result_holder)
