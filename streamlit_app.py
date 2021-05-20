@@ -58,9 +58,10 @@ def cosine_implementation(user_data):
 # ============================================================
 # Result Function : Random Forest Implementation
 def predict(user_data):
-    m_path = Path(__file__).parent.parent
-    path = m_path.joinpath('dataset/clean_data.csv')
-    df = pd.read_csv(str(path))
+    # m_path = Path(__file__).parent.parent
+    # path = m_path.joinpath('dataset/clean_data.csv')
+    # df = pd.read_csv(str(path))
+    df = pd.read_csv("clean_data.csv")
 
     df = df.loc[df['Current contraceptive method'] != 'Not using']
     df['Current contraceptive method'] = df['Current contraceptive method'].replace('Calendar or rhythm method/Periodic abstinence', 'Periodic abstinence', regex=True)
@@ -143,7 +144,6 @@ def predict(user_data):
 
 # ============================================================
 # Show Result Function
-# Refactor later... Just see if it works...
 def show_result(contraceptive_result):
     m_path = Path(__file__).parent
 
@@ -151,12 +151,11 @@ def show_result(contraceptive_result):
     text_path = m_path.joinpath('contraceptives/' + contraceptive_result + '/'+contraceptive_result+'.txt')
     lines = text_path.read_text()
     f_lines = lines.encode('cp1252')
-    lines = f_lines.decode('utf-8')
+    lines = f_lines.decode('ISO 8859-1')
 
     st.markdown("<h1 style='text-align: center; color: black;'>"+contraceptive_result+"</h1>", unsafe_allow_html=True)
     st.markdown("<img src='"+img_url+"' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center; text-align: justify;'>"+ lines +"</p>", unsafe_allow_html=True)    
-
 
 
 st.write("""
