@@ -106,6 +106,7 @@ def predict(user_data):
 # Refactor later... Just see if it works...
 def show_result(contraceptive_result):
     if contraceptive_result == "Basal Body temperature":
+        st.markdown("<h1 style='text-align: center; color: black;'>Basal Body temperature</h1>", unsafe_allow_html=True)
         image = Image.open('contraceptives/Basal Body temperature/Basal Body temperature.png')
         st.image(image, caption="Basal Body temperature")
 
@@ -158,6 +159,7 @@ def show_result(contraceptive_result):
         st.image(image, caption="Periodic abstinence")
 
     elif contraceptive_result == "Pill":
+        st.markdown("<h1 style='text-align: center; color: black;'>Pill</h1>", unsafe_allow_html=True)
         image = Image.open('contraceptives/Pill/Pill.png')
         st.image(image, caption="Pill")
 
@@ -175,6 +177,7 @@ st.write("""
 # System Web Application Version
 A [CS 321 | CS 322] Project
 """)
+
 
 with st.form("Counseling_Form"):
     # ============================================================
@@ -518,7 +521,7 @@ with st.form("Counseling_Form"):
 
     submit_button = st.form_submit_button(label="Submit Information")
     if submit_button:
-        st.write("Predicting/Recommending Contraceptive...")
+        st.write("Your suggested contraceptive is...")
 
         user_df = pd.DataFrame({
             "Respondent's current age":[current_age],
