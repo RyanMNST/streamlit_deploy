@@ -503,8 +503,8 @@ with st.form("Counseling_Form"):
             'Unmet need for contraception (definition 3)'
         ])
 
-        user_encode = X_encoder.transform(user_df)
-        st.write(rf_classifier.predict(user_encode))
+        # user_encode = X_encoder.transform(user_df)
+        st.write(rf_classifier.predict(user_df))
         
 
 
