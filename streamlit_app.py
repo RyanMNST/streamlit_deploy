@@ -481,7 +481,8 @@ with st.form("Counseling_Form"):
             'Unmet need for contraception (definition 3)':[{unmet_need_3}],
         })
 
-        predict(user_df)
+        st.write(user_df)
+        # predict(user_df)
 
         # user_encode = X_encoder.fit_transform(user_df)
         
