@@ -105,7 +105,7 @@ def predict(user_data):
 
     # Retrieve text
     result_text = user_encode[0]
-    st.write(user_encode)
+    st.write(result_text)
 
     return result_text
 
