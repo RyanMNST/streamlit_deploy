@@ -161,7 +161,7 @@ def show_result(contraceptive_result):
     elif contraceptive_result == "Pill":
         st.markdown("<h1 style='text-align: center; color: black;'>Pill</h1>", unsafe_allow_html=True)
         image = Image.open('contraceptives/Pill/Pill.png')
-        st.markdown("<img style='text-align: center; display: block; margin-left: auto; margin-right: auto; width: 50%;' src=contraceptives/Pill/Pill.png></img>", unsafe_allow_html=True)
+        st.markdown("<img style='text-align: center; display: block; margin-left: auto; margin-right: auto; width: 50%;' src='contraceptives/Pill/Pill.png'></img>", unsafe_allow_html=True)
 
     elif contraceptive_result == "Standard days method (SDM)":
         image = Image.open('contraceptives/Standard days method (SDM)/Standard days method (SDM).png')
