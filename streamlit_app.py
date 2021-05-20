@@ -78,10 +78,7 @@ with a_3:
 
 # Sexual Activity Information Features
 st.markdown("**Sexual Activity Information Features**")
-sai_1, sai_2 = st.beta_columns(2)
-
-with sai_1:
-    recent_sex_act = st.selectbox(
+recent_sex_act = st.selectbox(
     label="Recent Sexual Activity", 
     options=[
         'Active in last 4 weeks', 
@@ -89,10 +86,9 @@ with sai_1:
         'Not active in last 4 weeks - postpartum abstinence'
         ],
     index=0
-    )
+)
 
-with sai_2:
-    husband_desire = st.selectbox(
+husband_desire = st.selectbox(
     label="Husband's Desire for Children",
     options=[
         "Both want same",
@@ -100,6 +96,6 @@ with sai_2:
         "Husband wants more",
         "Don't know",
         "Husband wants fewer",
-    ],
+        ],
     index=0
 )
