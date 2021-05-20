@@ -12,6 +12,7 @@ A [CS 321 | CS 322] Project
 """)
 
 
+# ============================================================
 # Residential Status Features
 st.markdown("**Residential Status Features**")
 rs_1, rs_2 = st.beta_columns(2)
@@ -52,6 +53,7 @@ with rs_2:
 )
 
 
+# ============================================================
 # Age Features
 st.markdown("**Age Features**")
 a_1, a_2, a_3 = st.beta_columns(3)
@@ -78,6 +80,7 @@ with a_3:
 )
 
 
+# ============================================================
 # Sexual Activity Information Features
 st.markdown("**Sexual Activity Information Features**")
 recent_sex_act = st.selectbox(
@@ -102,21 +105,178 @@ husband_desire = st.selectbox(
     index=0
 )
 
-# Status of Woman and Pregnancy
 
-# Recent Births
+# ============================================================
+# Status of Woman and Pregnancy Features
+st.markdown("**Status of Woman and Pregnancy Features**")
+swp_1 = st.selectbox(
+    label="Current pregnancy status?", 
+    options=[
+        'Fecund', 
+        'Postpartum Amenorrheic', 
+        'Infecund, menopausal', 
+        'Pregnant'
+        ],
+    index=0
+)
 
-# Decision on Contraception
-
-# Do you smoke/indulge in the following?
-st.markdown("**Vices Features**")
-st.radio(
-    label="Cigarettes",
+swp_2 = st.radio(
+    label="Currently pregnant?",
     options=['Yes', 'No'],
     index=1
 )
 
-# Unmet Needs
+swp_3 = st.number_input(
+    label="Total number of pregnancies",
+    min_value=0,
+)
+
+
+# ============================================================
+# Recent Births Features
+st.markdown("**Recent Births Features**")
+rb_1 = st.selectbox(
+    label="Current Marital Status", 
+    options=[
+        'Married', 
+        'Widowed', 
+        'No longer living together/separated', 
+        'Divorced', 
+        'Living with partner',
+        'Never in union'
+        ],
+    index=0
+)
+
+rb_2 = st.number_input(
+    label="Births in last five (5) years",
+    min_value=0,
+)
+
+rb_3 = st.number_input(
+    label="Births in last three (3) years",
+    min_value=0,
+)
+
+rb_4 = st.number_input(
+    label="Births in past year",
+    min_value=0,
+)
+
+
+# ============================================================
+# Decision on Contraception Features
+st.markdown("**Decision on Contraception Features**")
+dc_1 = st.selectbox(
+    label="Decision maker for using a contraception", 
+    options=[
+        'Joint decision', 
+        'None', 
+        'Mainly husband, partner', 
+        'Mainly respondent', 
+        'Other'
+        ],
+    index=0
+)
+
+dc_2 = st.selectbox(
+    label="Decision maker for not using a contraception",
+    options=[
+        'Joint decision', 
+        'None', 
+        'Mainly husband, partner', 
+        'Mainly respondent', 
+        'Other',
+        ],
+    index=0
+)
+
+dc_3 = st.selectbox(
+    label="Preferred future contraception method",
+    options=[
+        'Not using', 
+        'Pill', 
+        'Implants/Norplant', 
+        'IUD', 
+        'Injections',
+        'Female sterilization', 
+        'Male condom', 
+        'Withdrawal',
+        'Sympothermal',
+        'Other traditional method',
+        'Calendar or rhythm method/Periodic abstinence', 
+        'Patch',
+        'Mucus/Billing/Ovulation', 
+        'Basal Body temperature',
+        'Other modern method', 
+        'Male sterilization', 
+        'Female condom',
+        'Standard days method (SDM)',
+        ],
+    index=0
+)
+
+
+# ============================================================
+# Do you smoke/indulge in the following?
+st.markdown("**Vices Features**")
+vice_1 = st.radio(
+    label="Do you use cigarettes?",
+    options=['Yes', 'No'],
+    index=1
+)
+
+vice_2 = st.radio(
+    label="Do you snuff by nose?",
+    options=['Yes', 'No'],
+    index=1
+)
+
+vice_3 = st.radio(
+    label="Do you smoke a water pipe?",
+    options=['Yes', 'No'],
+    index=1
+)
+
+vice_4 = st.radio(
+    label="Do you smoke a tobacco pipe?",
+    options=['Yes', 'No'],
+    index=1
+)
+
+vice_5 = st.radio(
+    label="Do you use kreteks?",
+    options=['Yes', 'No'],
+    index=1
+)
+
+vice_6 = st.radio(
+    label="Do you snuff by mouth?",
+    options=['Yes', 'No'],
+    index=1
+)
+
+vice_7 = st.radio(
+    label="Do you chew tobacco?",
+    options=['Yes', 'No'],
+    index=1
+)
+
+vice_8 = st.radio(
+    label="Do you smoke cigars, cheroots, and/or cigarillos?",
+    options=['Yes', 'No'],
+    index=1
+)
+
+vice_9 = st.radio(
+    label="Do you chew betel quid with tobacco?",
+    options=['Yes', 'No'],
+    index=1
+)
+
+
+# ============================================================
+# Unmet Needs Features
 st.markdown("**Unmet Needs Features**")
 unmet_need_1 = st.selectbox(
     label="Unmet Need (1)", 
