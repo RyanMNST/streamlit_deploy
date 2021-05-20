@@ -12,6 +12,8 @@ A [CS 321 | CS 322] Project
 """)
 
 # Residential Status Features
+residential_status, rural_area = st.beta_columns(2)
+
 residential_status = st.selectbox(
     label="Region", 
     options=[
@@ -44,5 +46,7 @@ rural_area = st.selectbox(
     ],
     index=1
 )
+
+
 
 # Age Features
