@@ -1,4 +1,5 @@
 # Dependencies and Libraries
+from sklearn.utils import resample
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -21,6 +22,8 @@ import category_encoders as ce
 
 # ============================================================
 # Result Function : Random Forest Implementation
+rf_classifier = RandomForestClassifier(n_estimators=100)
+
 def predict():
     df = pd.read_csv('clean_data.csv')
     df = df.loc[df['Current contraceptive method'] != 'Not using']
@@ -91,9 +94,7 @@ def predict():
     X_train = X_encoder.fit_transform(X_train)
     X_test = X_encoder.transform(X_test)
 
-    rf = RandomForestClassifier(n_estimators=100)
-    rf.fit(X_train, y_train)
-    st.write(X_test)
+    rf_classifier.fit(X_train, y_train)
 
 st.write("""
 # System Web Application Version
@@ -443,8 +444,68 @@ with st.form("Counseling_Form"):
     submit_button = st.form_submit_button(label="Submit Information")
     if submit_button:
         st.write("Predicting/Recommending Contraceptive...")
-        # st.write({unmet_need_1})
         predict()
+
+        user_df = pd.DataFrame({
+            "Respondent's current age":[{current_age}],
+            'Age of respondent at 1st birth':[{age_first_birth}],
+            'Age at first menstrual period':[{age_first_period}],
+            'Recent sexual activity':[{recent_sex_act}],
+            'Region':[{residential_status}],
+            'Type of place of residence':[{rural_area}],
+            'Current marital status':[{rb_1}],
+            'Births in last five years':[{rb_2}],
+            'Births in last three years':[{rb_3}],
+            'Births in past year':[{rb_4}],
+            'Currently pregnant':[{swp_2}],
+            'Total number all pregnacies':[{swp_3}],
+            'Decision maker for using contraception':[{dc_1}],
+            'Decision maker for not using contraception':[{dc_2}],
+            'Preferred future method':[{dc_3}],
+            'Smokes cigarettes':[{vice_1}],
+            'Smokes pipe full of tobacco':[{vice_4}],
+            'Chews tobacco':[{vice_7}],
+            'Snuffs by nose':[{vice_2}],
+            'Smokes kreteks':[{vice_5}],
+            'Smokes cigars, cheroots or cigarillos':[{vice_8}],
+            'Smokes water pipe':[{vice_3}],
+            'Snuff by mouth':[{vice_6}],
+            'Chews betel quid with tobacco':[{vice_9}],
+            "Husband's desire for children":[{husband_desire}],
+            'Exposure':[{swp_1}],
+            'Unmet need':[{unmet_need_1}],
+            'Unmet need (definition 2)':[{unmet_need_2}],
+            'Unmet need for contraception (definition 3)':[{unmet_need_3}],
+        })
+
+        X_encoder = ce.OneHotEncoder(cols=[
+            'Recent sexual activity',
+            'Region',
+            'Type of place of residence',
+            'Current marital status',
+            'Currently pregnant',
+            'Decision maker for using contraception',
+            'Decision maker for not using contraception',
+            'Preferred future method',
+            'Smokes cigarettes',
+            'Smokes pipe full of tobacco',
+            'Chews tobacco',
+            'Snuffs by nose',
+            'Smokes kreteks',
+            'Smokes cigars, cheroots or cigarillos',
+            'Smokes water pipe',
+            'Snuff by mouth',
+            'Chews betel quid with tobacco',
+            "Husband's desire for children",
+            'Exposure',
+            'Unmet need',
+            'Unmet need (definition 2)',
+            'Unmet need for contraception (definition 3)'
+        ])
+
+        user_encode = X_encoder.transform(user_df)
+        st.write(rf_classifier.predict(user_encode))
+        
 
 
 
