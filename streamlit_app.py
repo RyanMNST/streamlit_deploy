@@ -351,4 +351,6 @@ with st.form("Counseling_Form"):
         index=1
     )
 
-submit_button = st.form_submit_button(label="Submit Information")
+    submit_button = st.form_submit_button(label="Submit Information")
+    if submit_button:
+        st.write("Predicting/Recommending Contraceptive...")
