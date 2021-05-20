@@ -291,7 +291,7 @@ with vice_7_1:
 
 with vice_8_1:
     vice_8 = st.radio(
-        label="Do you smoke cigars, cheroots, and/or cigarillos?",
+        label="Do you use cigars, cheroots, cigarillos?",
         options=['Yes', 'No'],
         index=1
     )
