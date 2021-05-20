@@ -107,28 +107,78 @@ def predict(user_data):
 def show_result(contraceptive_result):
     if contraceptive_result == "Basal Body temperature":
         st.markdown("<h1 style='text-align: center; color: black;'>Basal Body temperature</h1>", unsafe_allow_html=True)
-        image = Image.open('contraceptives/Basal Body temperature/Basal Body temperature.png')
-        st.image(image, caption="Basal Body temperature")
+        # Contraceptive Image
+        st.markdown("<img src='https://raw.githubusercontent.com/RyanMNST/streamlit_deploy/main/contraceptives/Basal%20Body%20temperature/Basal%20Body%20temperature.png' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
+        # Contraceptive Text Details
+        st.markdown("<p style='text-align: center; text-align: justify;'> How does the basal body temperature monitoring method work? </p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; text-align: justify;'> The basal body temperature monitoring method works by enabling women to determine the fertile and infertile periods of their menstrual cycle and avoid sex during the fertile stages. A woman’s body temperature rises slightly after ovulation at about half way through her menstrual cycle. After ovulation, progesterone levels decrease, which cause the woman’s body temperature to rise slightly. A woman can therefore identify when ovulation has passed and the fertile stage of her menstrual cycle has finished by monitoring her basal body temperature throughout the menstrual cycle. </p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; text-align: justify;'> After the rise in temperature, she can be certain that she is infertile, until her menstrual bleeding begins again. It is very important that the woman also avoid sex or use an alternative method of contraception, from the first day of the menstrual cycle until a rise in basal body temperature occurs. Because there is no temperature change to indicate the beginning of ovulation, it is necessary for a woman to avoid sex without contraception, from the beginning of her menstrual bleeding until her temperature drops. </p>", unsafe_allow_html=True)
+        st.markdown("**Indications and contraindications**")
+        st.markdown("<p style='text-align: center; text-align: justify;'> Women with conditions affecting their body temperature must therefore use an alternative form of contraception or abstain from sexual intercourse until their body temperature stabilises. </p>", unsafe_allow_html=True)
+        st.markdown("**Using the basal body temperature monitoring contraceptive method**")
+        st.markdown("<p style='text-align: center; text-align: justify;'> Women may wish to take their partner to the GP or family planning clinic so that they can receive information about the basal body temperature monitoring method from a health professional. Women using the basal body temperature monitoring method should also ensure that they obtain an alternative contraceptive method which they can use during the fertile stage of their menstrual cycle, for example condoms or a diaphragm . Women using the basal body temperature monitoring method should also be aware that taking emergency contraception following unprotected sex substantially reduces the risk of pregnancy. Women who choose to use this method must also take care to learn how to monitor and chart their basal body temperature correctly. </p>", unsafe_allow_html=True)
 
     elif contraceptive_result == "Female condom":
-        image = Image.open('contraceptives/Female condom/Female condom.png')
-        st.image(image, caption="Female condom")
+        st.markdown("<h1 style='text-align: center; color: black;'>Female condom</h1>", unsafe_allow_html=True)
+        # Contraceptive Image
+        st.markdown("<img src='https://raw.githubusercontent.com/RyanMNST/streamlit_deploy/main/contraceptives/Female%20condom/Female%20condom.png' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
+        # Contraceptive Text Details
+        st.markdown("<p style='text-align: center; text-align: justify;'> Female condoms are made from soft, thin synthetic latex or latex. </p>", unsafe_allow_html=True)
+        st.markdown("**How female condoms work**")
+        st.markdown("<p style='text-align: center; text-align: justify;'> Female condoms are a barrier method of contraception worn inside the vagina. A female condom can be put into the vagina before sex, but make sure the penis does not come into contact with the vagina before the condom has been put in. </p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; text-align: justify;'> Make sure any female condoms you buy carry the European CE mark or British BSI Kitemark. Contraception services are free and confidential, including for people under the age of 16. If you want contraception and are under 16, the doctor, nurse or pharmacist will not tell your parents as long as they believe you fully understand your decisions and the information you have been given. </p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; text-align: justify;'> Female condoms are 95% successful when used correctly. They stop you from getting pregnant and getting sexually transmitted infections (STIs). Before any contact with the penis, a female condom must be inserted inside the vagina. Often purchase condoms with the CE or BSI Kitemark on the package. </p>", unsafe_allow_html=True)
 
     elif contraceptive_result == "Female sterilization":
-        image = Image.open('contraceptives/Female sterilization/Female sterilization.png')
-        st.image(image, caption="Female sterilization")
+        st.markdown("<h1 style='text-align: center; color: black;'>Female sterilization</h1>", unsafe_allow_html=True)
+        # Contraceptive Image
+        st.markdown("<img src='https://raw.githubusercontent.com/RyanMNST/streamlit_deploy/main/contraceptives/Female%20sterilization/Female%20sterilization.png' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
+        # Contraceptive Text Details
+        st.markdown("<p style='text-align: center; text-align: justify;'> Female sterilisation is an operation to permanently prevent pregnancy. The fallopian tubes are blocked or sealed to prevent the eggs reaching the sperm and becoming fertilised. </p>", unsafe_allow_html=True)
+        st.markdown("**How female sterilization works**")
+        st.markdown("<p style='text-align: center; text-align: justify;'> Female sterilisation works by preventing eggs travelling down the fallopian tubes, which link the ovaries to the womb. </p>", unsafe_allow_html=True)
+        st.markdown("**Is sterilisation right for me?**")
+        st.markdown("<p style='text-align: center; text-align: justify;'> Sterilisation reversal is not usually available on the NHS. You may also want to consider which method of contraception suits you, such as long-acting reversible contraception like an implant, device or injections. </p>", unsafe_allow_html=True)
+        st.markdown("**Before the operation**")
+        st.markdown("<p style='text-align: center; text-align: justify;'> Your GP may recommend counselling before referring you for sterilisation. Counselling will give you a chance to talk about the operation in detail and discuss any doubts, worries or questions you might have. Sterilisation can be performed at any stage in your menstrual cycle. </p>", unsafe_allow_html=True)
+        st.markdown("**Recovering after the operation**")
+        st.markdown("<p style='text-align: center; text-align: justify;'> If you leave hospital within hours of the operation, take a taxi or ask a relative or friend to pick you up. The healthcare professionals treating you in hospital will tell you what to expect and how to care for yourself after surgery. If you have had a general anaesthetic, do not drive a car for 48 hours afterwards. </p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; text-align: justify;'> Female sterilization has a success rate of over 99 percent in avoiding pregnancy. You don't have to worry about preventing pregnancy every time you have sex, so it doesn't interfere with your sexual life.</p>", unsafe_allow_html=True)
 
     elif contraceptive_result == "Implants":
-        image = Image.open('contraceptives/Implants/Implants.png')
-        st.image(image, caption="Implants")
+        st.markdown("<h1 style='text-align: center; color: black;'>Implants</h1>", unsafe_allow_html=True)
+        # Contraceptive Image
+        st.markdown("<img src='https://raw.githubusercontent.com/RyanMNST/streamlit_deploy/main/contraceptives/Implants/Implants.png' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
+        # Contraceptive Text Details
+        st.markdown("<p style='text-align: center; text-align: justify;'> Data compiled from 16 years of clinical and field studies indicate that NORPLANT is not only safe and long-acting, it is also the most effective current reversible contraceptive method. With at least a 99% rate of effectiveness, NORPLANT is more successful in preventing pregnancies than oral contraceptives and IUDs, and just as effective as sterilization. NORPLANT involves the insertion of hormonal implants that provide a continuous low-dose protection. Though containing a hormone similar that of some OCs, NORPLANT does not require daily intakes. </p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; text-align: justify;'> While not medically harmful, these irregularities can prove problematic for some women in certain cultures. Despite these drawbacks, continuation rates for NORPLANT have been high. While many questions remain as to its long-term benefits and risks, NORPLANT seems well-suited for women who wish to space their children or who which to avoid sterilization. </p>", unsafe_allow_html=True)
 
     elif contraceptive_result == "Injections":
-        image = Image.open('contraceptives/Injections/Injections.png')
-        st.image(image, caption="Injections")
+        st.markdown("<h1 style='text-align: center; color: black;'>Injections</h1>", unsafe_allow_html=True)
+        # Contraceptive Image
+        st.markdown("<img src='https://raw.githubusercontent.com/RyanMNST/streamlit_deploy/main/contraceptives/Injections/Injections.png' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
+        # Contraceptive Text Details
+        st.markdown("<p style='text-align: center; text-align: justify;'> Is the contraceptive injection effective? Each injection is successful at preventing pregnancy for more than 99 percent of the time and lasts for 12 to 14 weeks. If the injection is postponed, its effectiveness will be diminished. </p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; text-align: justify;'> Hormonal contraception is available in several forms, one of which is the slow release injection. The contraceptive injection is an injection of the hormone progestogen. </p>", unsafe_allow_html=True)
+        st.markdown("**How do I use the contraceptive injection?**")
+        st.markdown("<p style='text-align: center; text-align: justify;'> For continued contraceptive protection this should be repeated every 12 to 14 weeks. </p>", unsafe_allow_html=True)
+        st.markdown("**How does the contraceptive injection work?**")
+        st.markdown("<p style='text-align: center; text-align: justify;'> The injection works by preventing the ovaries from releasing an egg each month. </p>", unsafe_allow_html=True)
+        st.markdown("**Where can I get the contraceptive injection?**")
+        st.markdown("<p style='text-align: center; text-align: justify;'> Your doctor or nurse practitioner will write you a script and you can get Depo from your pharmacy. </p>", unsafe_allow_html=True)
+        st.markdown("**What happens if I get pregnant while I’m using the contraceptive injection?**")
+        st.markdown("<p style='text-align: center; text-align: justify;'> The injection is not known to harm a pregnancy. </p>", unsafe_allow_html=True)
+        st.markdown("**Can I use the contraceptive injection after I’ve had a baby?**")
+        st.markdown("<p style='text-align: center; text-align: justify;'> Talk to your doctor about which contraceptive choice is most suitable for you at this time. </p>", unsafe_allow_html=True)
+        st.markdown("**What else should I know about the contraceptive injection?**")
+        st.markdown("<p style='text-align: center; text-align: justify;'> The contraceptive injection does not protect you from sexually transmissible infections . The contraceptive injection is one of many types of contraception. </p>", unsafe_allow_html=True)
+
 
     elif contraceptive_result == "IUD":
         image = Image.open('contraceptives/IUD/IUD.png')
         st.image(image, caption="IUD")
+
+        st.markdown("<p style='text-align: center; text-align: justify;'>  </p>", unsafe_allow_html=True)
 
     elif contraceptive_result == "Lactational amenorrhea (LAM)":
         image = Image.open('contraceptives/Lactational amenorrhea (LAM)/Lactational amenorrhea (LAM).png')
