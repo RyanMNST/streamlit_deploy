@@ -23,9 +23,7 @@ import category_encoders as ce
 
 # ============================================================
 # Result Function : Random Forest Implementation
-model = Pipeline
-
-def predict():
+def predict(user_data):
     df = pd.read_csv('clean_data.csv')
     df = df.loc[df['Current contraceptive method'] != 'Not using']
     df['Current contraceptive method'] = df['Current contraceptive method'].replace('Calendar or rhythm method/Periodic abstinence', 'Periodic abstinence', regex=True)
@@ -98,6 +96,9 @@ def predict():
     rf_classifier.fit(X_train, y_train)
 
     model = Pipeline([("preprocessing",X_encoder),("model",rf_classifier)]).fit(X_train, y_train)
+    user_encode = model.predict(user_data)
+
+    st.write(rf_classifier.predict(user_encode))
 
 st.write("""
 # System Web Application Version
@@ -482,8 +483,6 @@ with st.form("Counseling_Form"):
         })
 
         # user_encode = X_encoder.fit_transform(user_df)
-        user_encode = model.predict(user_df)
-        # st.write(rf_classifier.predict(user_encode))
         
 
 
