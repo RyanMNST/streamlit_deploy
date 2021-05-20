@@ -5,4 +5,3 @@ sklearn
 matplotlib
 seaborn
 category_encoders
-pickle
