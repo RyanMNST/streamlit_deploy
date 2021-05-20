@@ -12,6 +12,7 @@ import pickle
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
+from sklearn.pipeline import Pipeline
 from sklearn.metrics import classification_report
 from sklearn.metrics.pairwise import cosine_similarity
 import category_encoders as ce
@@ -23,6 +24,7 @@ import category_encoders as ce
 # ============================================================
 # Result Function : Random Forest Implementation
 rf_classifier = RandomForestClassifier(n_estimators=100)
+model = Pipeline
 X_encoder = ce.OneHotEncoder(cols=[
         'Recent sexual activity',
         'Region',
@@ -93,6 +95,8 @@ def predict():
     X_train = X_encoder.fit_transform(X_train)
     X_test = X_encoder.transform(X_test)
     rf_classifier.fit(X_train, y_train)
+
+    model = Pipeline([("preprocessing",X_encoder),("model",rf_classifier)]).fit(X_train, y_train)
 
 st.write("""
 # System Web Application Version
@@ -476,7 +480,8 @@ with st.form("Counseling_Form"):
             'Unmet need for contraception (definition 3)':[{unmet_need_3}],
         })
 
-        user_encode = X_encoder.fit_transform(user_df)
+        # user_encode = X_encoder.fit_transform(user_df)
+        user_encode = model.predict(user_df)
         st.write(rf_classifier.predict(user_encode))
         
 
