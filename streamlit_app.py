@@ -12,9 +12,10 @@ A [CS 321 | CS 322] Project
 """)
 
 # Residential Status Features
-residential_status, rural_area = st.beta_columns(2)
+rs_1, rs_2 = st.beta_columns(2)
 
-residential_status = st.selectbox(
+with rs_1:
+    residential_status = st.selectbox(
     label="Region", 
     options=[
         'Autonomous Region in Muslim Mindanao',
@@ -38,7 +39,8 @@ residential_status = st.selectbox(
     index=7
     )
 
-rural_area = st.selectbox(
+with rs_2:
+    rural_area = st.selectbox(
     label="Area",
     options=[
         'Rural',
@@ -46,7 +48,6 @@ rural_area = st.selectbox(
     ],
     index=1
 )
-
 
 
 # Age Features
