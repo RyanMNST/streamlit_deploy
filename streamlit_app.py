@@ -8,8 +8,8 @@ import seaborn as sns
 import pickle
 
 # Load learned model
-loaded_model = pickle.load(open('model.pkl', 'rb'))
-loaded_encoder = pickle.load(open('encoder.pkl', 'rb'))
+# loaded_model = pickle.load(open('model.pkl', 'rb'))
+# loaded_encoder = pickle.load(open('encoder.pkl', 'rb'))
 
 st.write("""
 # System Web Application Version
