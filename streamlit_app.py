@@ -96,10 +96,18 @@ def predict(user_data):
     rf_classifier = RandomForestClassifier(n_estimators=100)
     # rf_classifier.fit(X_train, y_train)
 
+    # Preprocess, Use Model, and Train
     model = Pipeline([("preprocessing",X_encoder),("model",rf_classifier)]).fit(X_train, y_train)
     user_encode = model.predict(user_data)
 
+    # Output Dataframe result
     st.write(user_encode)
+
+    # Retrieve text
+    result_text = user_encode['0'].values[0]
+    st.write(user_encode)
+
+    return result_text
 
 
 # ============================================================
@@ -487,17 +495,11 @@ with st.form("Counseling_Form"):
             'Unmet need for contraception (definition 3)':[unmet_need_3],
         })
 
-        # Show user input
-        # st.write(user_df)
-
         # Show prediction
         result_holder = predict(user_df)
-        result_text = result_holder['0'].values[0]
-        st.write(result_text)
         
 
 # ============================================================
 # Show Result Function
 def show_result(result_holder):
-    result_text = result_holder['0']
-    st.write(result_text)
+    st.write(result_holder)
