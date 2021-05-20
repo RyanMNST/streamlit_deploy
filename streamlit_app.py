@@ -163,7 +163,7 @@ def show_result(contraceptive_result):
 
 
 st.write("""
-# System Web Application Version
+# Finals System Web Application Version
 A [CS 321 | CS 322] Project
 """)
 
