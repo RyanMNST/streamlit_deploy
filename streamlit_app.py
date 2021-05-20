@@ -354,3 +354,13 @@ with st.form("Counseling_Form"):
     submit_button = st.form_submit_button(label="Submit Information")
     if submit_button:
         st.write("Predicting/Recommending Contraceptive...")
+        st.write({unmet_need_1})
+
+
+
+# ============================================================
+# Result Function
+
+
+# ============================================================
+# Show Result Function
