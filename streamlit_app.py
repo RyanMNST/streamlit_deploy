@@ -165,6 +165,9 @@ def show_result(contraceptive_result):
         # Contraceptive Text Details
         st.write("When you take the pill every single day, it’s great at preventing pregnancy.")
         st.write("If you use it perfectly, the pill is 99 percent effective. That means about 9 out of 100 pill users get pregnant each year. The better you are about taking your pill every day and starting your pill packs on time, the better the pill will work. You can use our birth control app to remind you to take your pills when you need to.")
+
+        st.markdown("<p style='text-align: center; text-align: justify;'> If you use it perfectly, the pill is 99 percent effective. That means about 9 out of 100 pill users get pregnant each year. The better you are about taking your pill every day and starting your pill packs on time, the better the pill will work. You can use our birth control app to remind you to take your pills when you need to. </p>", unsafe_allow_html=True)
+
         st.write("But there’s a very small chance that you could still get pregnant, even if you always take your pills correctly.")
         st.write("These medicines or supplements can also make the pill not work as well")
         st.write("If you take any of these while you’re on the pill, use condoms as a backup method.")
