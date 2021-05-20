@@ -27,9 +27,10 @@ from sklearn.metrics.pairwise import cosine_similarity
 # ============================================================
 # Result Function : Cosine Similarity Implementation
 def cosine_implementation(user_data):
-    m_path = Path(__file__).parent
-    path = m_path.joinpath('dataset/clean_data.csv')
-    df = pd.read_csv(str(path))
+    # m_path = Path(__file__).parent.parent
+    # path = m_path.joinpath('dataset/clean_data.csv')
+    # df = pd.read_csv(str(path))
+    df = pd.read_csv("clean_data.csv")
 
     df = df.loc[df['Current contraceptive method'] != 'Not using']
     df.drop(columns=['Unnamed: 0'], axis=1)
@@ -151,7 +152,8 @@ def show_result(contraceptive_result):
     text_path = m_path.joinpath('contraceptives/' + contraceptive_result + '/'+contraceptive_result+'.txt')
     lines = text_path.read_text()
     f_lines = lines.encode('cp1252')
-    lines = f_lines.decode('UTF-8')
+    # lines = f_lines.decode('UTF-8')
+    lines = f_lines.decode('utf8')
 
     st.markdown("<h1 style='text-align: center; color: black;'>"+contraceptive_result+"</h1>", unsafe_allow_html=True)
     st.markdown("<img src='"+img_url+"' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
