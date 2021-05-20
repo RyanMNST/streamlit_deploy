@@ -8,6 +8,8 @@ import matplotlib as plt
 import seaborn as sns
 import pickle
 from PIL import Image
+from pathlib import Path
+
 
 # Classifer Library
 from sklearn.ensemble import RandomForestClassifier
@@ -21,7 +23,10 @@ import category_encoders as ce
 # ============================================================
 # Result Function : Random Forest Implementation
 def predict(user_data):
-    df = pd.read_csv('clean_data.csv')
+    m_path = Path(__file__).parent.parent
+    path = m_path.joinpath('dataset/clean_data.csv')
+    df = pd.read_csv(str(path))
+
     df = df.loc[df['Current contraceptive method'] != 'Not using']
     df['Current contraceptive method'] = df['Current contraceptive method'].replace('Calendar or rhythm method/Periodic abstinence', 'Periodic abstinence', regex=True)
     df['Current contraceptive method'] = df['Current contraceptive method'].replace('Implants/Norplant', 'Implants', regex=True)
@@ -105,79 +110,17 @@ def predict(user_data):
 # Show Result Function
 # Refactor later... Just see if it works...
 def show_result(contraceptive_result):
-    if contraceptive_result == "Basal Body temperature":
-        st.markdown("<h1 style='text-align: center; color: black;'>Basal Body temperature</h1>", unsafe_allow_html=True)
-        image = Image.open('contraceptives/Basal Body temperature/Basal Body temperature.png')
-        st.image(image, caption="Basal Body temperature")
+    m_path = Path(__file__).parent
 
-    elif contraceptive_result == "Female condom":
-        image = Image.open('contraceptives/Female condom/Female condom.png')
-        st.image(image, caption="Female condom")
+    img_url='https://raw.githubusercontent.com/RyanMNST/streamlit_deploy/main/contraceptives/'+contraceptive_result+'/'+contraceptive_result+'.png'
+    text_path = m_path.joinpath('contraceptives/' + contraceptive_result + '/'+contraceptive_result+'.txt')
+    lines = text_path.read_text()
+    f_lines = lines.encode('cp1252')
+    lines = f_lines.decode('utf-8')
 
-    elif contraceptive_result == "Female sterilization":
-        image = Image.open('contraceptives/Female sterilization/Female sterilization.png')
-        st.image(image, caption="Female sterilization")
-
-    elif contraceptive_result == "Implants":
-        image = Image.open('contraceptives/Implants/Implants.png')
-        st.image(image, caption="Implants")
-
-    elif contraceptive_result == "Injections":
-        image = Image.open('contraceptives/Injections/Injections.png')
-        st.image(image, caption="Injections")
-
-    elif contraceptive_result == "IUD":
-        image = Image.open('contraceptives/IUD/IUD.png')
-        st.image(image, caption="IUD")
-
-    elif contraceptive_result == "Lactational amenorrhea (LAM)":
-        image = Image.open('contraceptives/Lactational amenorrhea (LAM)/Lactational amenorrhea (LAM).png')
-        st.image(image, caption="Lactational amenorrhea (LAM)")
-
-    elif contraceptive_result == "Male condom":
-        image = Image.open('contraceptives/Male condom/Male condom.png')
-        st.image(image, caption="Male condom")
-
-    elif contraceptive_result == "Male sterilization":
-        image = Image.open('contraceptives/Male sterilization/Male sterilization.png')
-        st.image(image, caption="Male sterilization")
-
-    elif contraceptive_result == "Other modern method":
-        image = Image.open('contraceptives/Other modern method/Other modern method.png')
-        st.image(image, caption="Other modern method")
-
-    elif contraceptive_result == "Other traditional method":
-        image = Image.open('contraceptives/Other traditional method/Other traditional method.png')
-        st.image(image, caption="Other traditional method")
-
-    elif contraceptive_result == "Ovulation":
-        image = Image.open('contraceptives/Ovulation/Ovulation.png')
-        st.image(image, caption="Ovulation")
-
-    elif contraceptive_result == "Periodic abstinence":
-        image = Image.open('contraceptives/Periodic abstinence/Periodic abstinence.png')
-        st.image(image, caption="Periodic abstinence")
-
-    elif contraceptive_result == "Pill":
-        st.markdown("<h1 style='text-align: center; color: black;'>Pill</h1>", unsafe_allow_html=True)
-        # Contraceptive Image
-        st.markdown("<img src='https://raw.githubusercontent.com/RyanMNST/streamlit_deploy/main/contraceptives/Pill/Pill.png' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
-        # Contraceptive Text Details
-        st.markdown("<p style='text-align: center; text-align: justify;'> When you take the pill every single day, it’s great at preventing pregnancy. </p>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; text-align: justify;'> If you use it perfectly, the pill is 99 percent effective. That means about 9 out of 100 pill users get pregnant each year. The better you are about taking your pill every day and starting your pill packs on time, the better the pill will work. You can use our birth control app to remind you to take your pills when you need to. </p>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; text-align: justify;'> But there’s a very small chance that you could still get pregnant, even if you always take your pills correctly. </p>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; text-align: justify;'> These medicines or supplements can also make the pill not work as well. </p>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; text-align: justify;'> If you take any of these while you’re on the pill, use condoms as a backup method. </p>", unsafe_allow_html=True)
-        st.markdown("**How long do birth control pills take to work?**")
-        st.markdown("<p style='text-align: center; text-align: justify;'> It depends on when you start taking them and what type of pills you’re using. You can start taking the birth control pill any day of the month. </p>", unsafe_allow_html=True)
-
-    elif contraceptive_result == "Standard days method (SDM)":
-        image = Image.open('contraceptives/Standard days method (SDM)/Standard days method (SDM).png')
-        st.image(image, caption="Standard days method (SDM)")
-
-    elif contraceptive_result == "Withdrawal":
-        image = Image.open('contraceptives/Withdrawal/Withdrawal.png')
-        st.image(image, caption="Withdrawal")
+    st.markdown("<h1 style='text-align: center; color: black;'>"+contraceptive_result+"</h1>", unsafe_allow_html=True)
+    st.markdown("<img src='"+img_url+"' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center; text-align: justify;'>"+ lines +"</p>", unsafe_allow_html=True)
     
 
 
