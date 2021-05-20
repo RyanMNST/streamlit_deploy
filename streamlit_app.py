@@ -23,32 +23,7 @@ import category_encoders as ce
 
 # ============================================================
 # Result Function : Random Forest Implementation
-rf_classifier = RandomForestClassifier(n_estimators=100)
 model = Pipeline
-X_encoder = ce.OneHotEncoder(cols=[
-        'Recent sexual activity',
-        'Region',
-        'Type of place of residence',
-        'Current marital status',
-        'Currently pregnant',
-        'Decision maker for using contraception',
-        'Decision maker for not using contraception',
-        'Preferred future method',
-        'Smokes cigarettes',
-        'Smokes pipe full of tobacco',
-        'Chews tobacco',
-        'Snuffs by nose',
-        'Smokes kreteks',
-        'Smokes cigars, cheroots or cigarillos',
-        'Smokes water pipe',
-        'Snuff by mouth',
-        'Chews betel quid with tobacco',
-        "Husband's desire for children",
-        'Exposure',
-        'Unmet need',
-        'Unmet need (definition 2)',
-        'Unmet need for contraception (definition 3)'
-    ])
 
 def predict():
     df = pd.read_csv('clean_data.csv')
@@ -92,8 +67,34 @@ def predict():
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)
 
+    X_encoder = ce.OneHotEncoder(cols=[
+        'Recent sexual activity',
+        'Region',
+        'Type of place of residence',
+        'Current marital status',
+        'Currently pregnant',
+        'Decision maker for using contraception',
+        'Decision maker for not using contraception',
+        'Preferred future method',
+        'Smokes cigarettes',
+        'Smokes pipe full of tobacco',
+        'Chews tobacco',
+        'Snuffs by nose',
+        'Smokes kreteks',
+        'Smokes cigars, cheroots or cigarillos',
+        'Smokes water pipe',
+        'Snuff by mouth',
+        'Chews betel quid with tobacco',
+        "Husband's desire for children",
+        'Exposure',
+        'Unmet need',
+        'Unmet need (definition 2)',
+        'Unmet need for contraception (definition 3)'
+    ])
+
     X_train = X_encoder.fit_transform(X_train)
     X_test = X_encoder.transform(X_test)
+    rf_classifier = RandomForestClassifier(n_estimators=100)
     rf_classifier.fit(X_train, y_train)
 
     model = Pipeline([("preprocessing",X_encoder),("model",rf_classifier)]).fit(X_train, y_train)
@@ -482,7 +483,7 @@ with st.form("Counseling_Form"):
 
         # user_encode = X_encoder.fit_transform(user_df)
         user_encode = model.predict(user_df)
-        st.write(rf_classifier.predict(user_encode))
+        # st.write(rf_classifier.predict(user_encode))
         
 
 
