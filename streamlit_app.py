@@ -12,6 +12,7 @@ A [CS 321 | CS 322] Project
 """)
 
 # Residential Status Features
+st.text("Residential Status Features")
 rs_1, rs_2 = st.beta_columns(2)
 
 with rs_1:
@@ -51,6 +52,7 @@ with rs_2:
 
 
 # Age Features
+st.text("Age Features")
 a_1, a_2, a_3 = st.beta_columns(3)
 
 with a_1:
@@ -73,3 +75,5 @@ with a_3:
     min_value=15,
     max_value=49,
 )
+
+# Sexual Activity Information Features
