@@ -120,8 +120,8 @@ def show_result(contraceptive_result):
 
     st.markdown("<h1 style='text-align: center; color: black;'>"+contraceptive_result+"</h1>", unsafe_allow_html=True)
     st.markdown("<img src='"+img_url+"' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center; text-align: justify;'>"+ lines +"</p>", unsafe_allow_html=True)
-    
+    st.markdown("<p style='text-align: center; text-align: justify;'>"+ lines +"</p>", unsafe_allow_html=True)    
+
 
 
 st.write("""
