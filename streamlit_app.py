@@ -161,7 +161,15 @@ def show_result(contraceptive_result):
     elif contraceptive_result == "Pill":
         st.markdown("<h1 style='text-align: center; color: black;'>Pill</h1>", unsafe_allow_html=True)
         image = Image.open('contraceptives/Pill/Pill.png')
-        st.markdown("<img style='text-align: center; display: block; margin-left: auto; margin-right: auto; width: 50%;' src='contraceptives/Pill/Pill.png'></img>", unsafe_allow_html=True)
+        st.image(image, caption="Pill")
+        # Contraceptive Text Details
+        st.text("When you take the pill every single day, it’s great at preventing pregnancy.")
+        st.text("If you use it perfectly, the pill is 99 percent effective. That means about 9 out of 100 pill users get pregnant each year. The better you are about taking your pill every day and starting your pill packs on time, the better the pill will work. You can use our birth control app to remind you to take your pills when you need to.")
+        st.text("But there’s a very small chance that you could still get pregnant, even if you always take your pills correctly.")
+        st.text("These medicines or supplements can also make the pill not work as well")
+        st.text("If you take any of these while you’re on the pill, use condoms as a backup method.")
+        st.markdown("**How long do birth control pills take to work?**")
+        st.text("It depends on when you start taking them and what type of pills you’re using. You can start taking the birth control pill any day of the month.")
 
     elif contraceptive_result == "Standard days method (SDM)":
         image = Image.open('contraceptives/Standard days method (SDM)/Standard days method (SDM).png')
