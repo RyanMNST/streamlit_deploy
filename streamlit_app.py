@@ -120,16 +120,20 @@ swp_1 = st.selectbox(
     index=0
 )
 
-swp_2 = st.radio(
-    label="Currently pregnant?",
-    options=['Yes', 'No'],
-    index=1
-)
+swp_2_1, swp_3_1 = st.beta_columns(2)
 
-swp_3 = st.number_input(
-    label="Total number of pregnancies",
-    min_value=0,
-)
+with swp_2_1:
+    swp_2 = st.radio(
+        label="Currently pregnant?",
+        options=['Yes', 'No'],
+        index=1
+    )
+
+with swp_3_1:
+    swp_3 = st.number_input(
+        label="Total number of pregnancies",
+        min_value=0,
+    )
 
 
 # ============================================================
@@ -148,48 +152,57 @@ rb_1 = st.selectbox(
     index=0
 )
 
-rb_2 = st.number_input(
-    label="Births in last five (5) years",
-    min_value=0,
-)
+rb_2_1, rb_3_1, rb_4_1 = st.beta_columns(3)
 
-rb_3 = st.number_input(
-    label="Births in last three (3) years",
-    min_value=0,
-)
+with rb_2_1:
+    rb_2 = st.number_input(
+        label="Births in last five (5) years",
+        min_value=0,
+    )
 
-rb_4 = st.number_input(
-    label="Births in past year",
-    min_value=0,
-)
+with rb_3_1:
+    rb_3 = st.number_input(
+        label="Births in last three (3) years",
+        min_value=0,
+    )
+
+with rb_4_1:
+    rb_4 = st.number_input(
+        label="Births in past year",
+        min_value=0,
+    )
 
 
 # ============================================================
 # Decision on Contraception Features
 st.markdown("**Decision on Contraception Features**")
-dc_1 = st.selectbox(
-    label="Decision maker for using a contraception", 
-    options=[
-        'Joint decision', 
-        'None', 
-        'Mainly husband, partner', 
-        'Mainly respondent', 
-        'Other'
-        ],
-    index=0
-)
+dc_1_1, dc_2_1 = st.beta_columns(2)
 
-dc_2 = st.selectbox(
-    label="Decision maker for not using a contraception",
-    options=[
-        'Joint decision', 
-        'None', 
-        'Mainly husband, partner', 
-        'Mainly respondent', 
-        'Other',
-        ],
-    index=0
-)
+with dc_1_1:
+    dc_1 = st.selectbox(
+        label="Decision maker for using a contraception", 
+        options=[
+            'Joint decision', 
+            'None', 
+            'Mainly husband, partner', 
+            'Mainly respondent', 
+            'Other'
+            ],
+        index=0
+    )
+
+with dc_2_1:
+    dc_2 = st.selectbox(
+        label="Decision maker for not using a contraception",
+        options=[
+            'Joint decision', 
+            'None', 
+            'Mainly husband, partner', 
+            'Mainly respondent', 
+            'Other',
+            ],
+        index=0
+    )
 
 dc_3 = st.selectbox(
     label="Preferred future contraception method",
