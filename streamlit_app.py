@@ -7,6 +7,7 @@ import sklearn as skl
 import matplotlib as plt
 import seaborn as sns
 import pickle
+from PIL import Image
 
 # Classifer Library
 from sklearn.ensemble import RandomForestClassifier
@@ -16,11 +17,6 @@ from sklearn.pipeline import Pipeline
 from sklearn.metrics import classification_report
 from sklearn.metrics.pairwise import cosine_similarity
 import category_encoders as ce
-
-# Load learned model
-# loaded_model = pickle.load(open('model.pkl', 'rb'))
-# loaded_encoder = pickle.load(open('encoder.pkl', 'rb'))
-
 
 # ============================================================
 # Result Function : Random Forest Implementation
@@ -100,19 +96,80 @@ def predict(user_data):
     model = Pipeline([("preprocessing",X_encoder),("model",rf_classifier)]).fit(X_train, y_train)
     user_encode = model.predict(user_data)
 
-    # Output Dataframe result
-    st.write(user_encode)
-
-    # Retrieve text
+    # Retrieve and return text
     result_text = user_encode[0]
-    st.write(result_text)
-
     return result_text
 
 
 # ============================================================
-# Result Holder
-result_holder = "No prediction"
+# Show Result Function
+# Refactor later... Just see if it works...
+def show_result(contraceptive_result):
+    if contraceptive_result == "Basal Body temperature":
+        image = Image.open('contraceptives/Basal Body temperature/Basal Body temperature.png')
+        st.image(image, caption="Basal Body temperature")
+
+    elif contraceptive_result == "Female condom":
+        image = Image.open('contraceptives/Female condom/Female condom.png')
+        st.image(image, caption="Female condom")
+
+    elif contraceptive_result == "Female sterilization":
+        image = Image.open('contraceptives/Female sterilization/Female sterilization.png')
+        st.image(image, caption="Female sterilization")
+
+    elif contraceptive_result == "Implants":
+        image = Image.open('contraceptives/Implants/Implants.png')
+        st.image(image, caption="Implants")
+
+    elif contraceptive_result == "Injections":
+        image = Image.open('contraceptives/Injections/Injections.png')
+        st.image(image, caption="Injections")
+
+    elif contraceptive_result == "IUD":
+        image = Image.open('contraceptives/IUD/IUD.png')
+        st.image(image, caption="IUD")
+
+    elif contraceptive_result == "Lactational amenorrhea (LAM)":
+        image = Image.open('contraceptives/Lactational amenorrhea (LAM)/Lactational amenorrhea (LAM).png')
+        st.image(image, caption="Lactational amenorrhea (LAM)")
+
+    elif contraceptive_result == "Male condom":
+        image = Image.open('contraceptives/Male condom/Male condom.png')
+        st.image(image, caption="Male condom")
+
+    elif contraceptive_result == "Male sterilization":
+        image = Image.open('contraceptives/Male sterilization/Male sterilization.png')
+        st.image(image, caption="Male sterilization")
+
+    elif contraceptive_result == "Other modern method":
+        image = Image.open('contraceptives/Other modern method/Other modern method.png')
+        st.image(image, caption="Other modern method")
+
+    elif contraceptive_result == "Other traditional method":
+        image = Image.open('contraceptives/Other traditional method/Other traditional method.png')
+        st.image(image, caption="Other traditional method")
+
+    elif contraceptive_result == "Ovulation":
+        image = Image.open('contraceptives/Ovulation/Ovulation.png')
+        st.image(image, caption="Ovulation")
+
+    elif contraceptive_result == "Periodic abstinence":
+        image = Image.open('contraceptives/Periodic abstinence/Periodic abstinence.png')
+        st.image(image, caption="Periodic abstinence")
+
+    elif contraceptive_result == "Pill":
+        image = Image.open('contraceptives/Pill/Pill.png')
+        st.image(image, caption="Pill")
+
+    elif contraceptive_result == "Standard days method (SDM)":
+        image = Image.open('contraceptives/Standard days method (SDM)/Standard days method (SDM).png')
+        st.image(image, caption="Standard days method (SDM)")
+
+    elif contraceptive_result == "Withdrawal":
+        image = Image.open('contraceptives/Withdrawal/Withdrawal.png')
+        st.image(image, caption="Withdrawal")
+    
+
 
 st.write("""
 # System Web Application Version
@@ -497,9 +554,5 @@ with st.form("Counseling_Form"):
 
         # Show prediction
         result_holder = predict(user_df)
+        show_result(result_holder)
         
-
-# ============================================================
-# Show Result Function
-def show_result(result_holder):
-    st.write(result_holder)
