@@ -23,9 +23,10 @@ import category_encoders as ce
 # ============================================================
 # Result Function : Random Forest Implementation
 def predict(user_data):
-    m_path = Path(__file__).parent.parent
-    path = m_path.joinpath('dataset/clean_data.csv')
-    df = pd.read_csv(str(path))
+    # m_path = Path(__file__).parent.parent
+    # path = m_path.joinpath('dataset/clean_data.csv')
+    # df = pd.read_csv(str(path))
+    df = pd.read_csv("clean_data.csv")
 
     df = df.loc[df['Current contraceptive method'] != 'Not using']
     df['Current contraceptive method'] = df['Current contraceptive method'].replace('Calendar or rhythm method/Periodic abstinence', 'Periodic abstinence', regex=True)
