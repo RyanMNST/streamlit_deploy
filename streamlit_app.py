@@ -12,7 +12,7 @@ A [CS 321 | CS 322] Project
 """)
 
 # Residential Status Features
-st.text("**Residential Status Features**")
+st.markdown("**Residential Status Features**")
 rs_1, rs_2 = st.beta_columns(2)
 
 with rs_1:
@@ -52,7 +52,7 @@ with rs_2:
 
 
 # Age Features
-st.text("**Age Features**")
+st.markdown("**Age Features**")
 a_1, a_2, a_3 = st.beta_columns(3)
 
 with a_1:
@@ -77,3 +77,29 @@ with a_3:
 )
 
 # Sexual Activity Information Features
+st.markdown("**Sexual Activity Information Features**")
+sai_1, sai_2 = st.beta_columns(2)
+
+with sai_1:
+    recent_sex_act = st.selectbox(
+    label="Recent Sexual Activity", 
+    options=[
+        'Active in last 4 weeks', 
+        'Not active in last 4 weeks - not postpartum abstinence',
+        'Not active in last 4 weeks - postpartum abstinence'
+        ],
+    index=0
+    )
+
+with sai_2:
+    husband_desire = st.selectbox(
+    label="Husband's Desire for Children",
+    options=[
+        "Both want same",
+        "No desire",
+        "Husband wants more",
+        "Don't know",
+        "Husband wants fewer",
+    ],
+    index=0
+)
