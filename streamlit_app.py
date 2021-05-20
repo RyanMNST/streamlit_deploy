@@ -21,6 +21,7 @@ import category_encoders as ce
 # loaded_model = pickle.load(open('model.pkl', 'rb'))
 # loaded_encoder = pickle.load(open('encoder.pkl', 'rb'))
 
+
 # ============================================================
 # Result Function : Random Forest Implementation
 def predict(user_data):
@@ -99,6 +100,11 @@ def predict(user_data):
     user_encode = model.predict(user_data)
 
     st.write(user_encode)
+
+
+# ============================================================
+# Result Holder
+result_holder = "No prediction"
 
 st.write("""
 # System Web Application Version
@@ -481,12 +487,17 @@ with st.form("Counseling_Form"):
             'Unmet need for contraception (definition 3)':[unmet_need_3],
         })
 
-        st.write(user_df)
-        predict(user_df)
+        # Show user input
+        # st.write(user_df)
 
-        # user_encode = X_encoder.fit_transform(user_df)
+        # Show prediction
+        result_holder = predict(user_df)
+        result_text = result_holder['0']
+        st.write(result_text)
         
-
 
 # ============================================================
 # Show Result Function
+def show_result(result_holder):
+    result_text = result_holder['0']
+    st.write(result_text)
