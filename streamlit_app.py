@@ -482,7 +482,7 @@ with st.form("Counseling_Form"):
         })
 
         st.write(user_df)
-        # predict(user_df)
+        predict(user_df)
 
         # user_encode = X_encoder.fit_transform(user_df)
         
