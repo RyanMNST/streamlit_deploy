@@ -161,7 +161,7 @@ def show_result(contraceptive_result):
     elif contraceptive_result == "Pill":
         st.markdown("<h1 style='text-align: center; color: black;'>Pill</h1>", unsafe_allow_html=True)
         # Contraceptive Image
-        image = Image.open('contraceptives/Pill/Pill.png')
+        image = Image.open('/contraceptives/Pill/Pill.png')
         st.image(image, caption="Pill")
 
         st.markdown("<img src='contraceptives/Pill/Pill.png' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
