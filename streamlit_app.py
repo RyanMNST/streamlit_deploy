@@ -161,11 +161,7 @@ def show_result(contraceptive_result):
     elif contraceptive_result == "Pill":
         st.markdown("<h1 style='text-align: center; color: black;'>Pill</h1>", unsafe_allow_html=True)
         # Contraceptive Image
-        image = Image.open('contraceptives/Pill/Pill.png')
-        st.image(image, caption="Pill")
-
         st.markdown("<img src='https://raw.githubusercontent.com/RyanMNST/streamlit_deploy/main/contraceptives/Pill/Pill.png' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
-
         # Contraceptive Text Details
         st.markdown("<p style='text-align: center; text-align: justify;'> When you take the pill every single day, it’s great at preventing pregnancy. </p>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center; text-align: justify;'> If you use it perfectly, the pill is 99 percent effective. That means about 9 out of 100 pill users get pregnant each year. The better you are about taking your pill every day and starting your pill packs on time, the better the pill will work. You can use our birth control app to remind you to take your pills when you need to. </p>", unsafe_allow_html=True)
