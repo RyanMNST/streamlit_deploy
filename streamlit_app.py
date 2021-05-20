@@ -233,59 +233,75 @@ dc_3 = st.selectbox(
 # ============================================================
 # Do you smoke/indulge in the following?
 st.markdown("**Vices Features**")
-vice_1 = st.radio(
-    label="Do you use cigarettes?",
-    options=['Yes', 'No'],
-    index=1
-)
 
-vice_2 = st.radio(
-    label="Do you snuff by nose?",
-    options=['Yes', 'No'],
-    index=1
-)
+vice_1_1, vice_2_1, vice_3_1 = st.beta_columns(3)
 
-vice_3 = st.radio(
-    label="Do you smoke a water pipe?",
-    options=['Yes', 'No'],
-    index=1
-)
+with vice_1_1:
+    vice_1 = st.radio(
+        label="Do you use cigarettes?",
+        options=['Yes', 'No'],
+        index=1
+    )
 
-vice_4 = st.radio(
-    label="Do you smoke a tobacco pipe?",
-    options=['Yes', 'No'],
-    index=1
-)
+with vice_2_1:
+    vice_2 = st.radio(
+        label="Do you snuff by nose?",
+        options=['Yes', 'No'],
+        index=1
+    )
 
-vice_5 = st.radio(
-    label="Do you use kreteks?",
-    options=['Yes', 'No'],
-    index=1
-)
+with vice_3_1:
+    vice_3 = st.radio(
+        label="Do you smoke a water pipe?",
+        options=['Yes', 'No'],
+        index=1
+    )
 
-vice_6 = st.radio(
-    label="Do you snuff by mouth?",
-    options=['Yes', 'No'],
-    index=1
-)
+vice_4_1, vice_5_1, vice_6_1 = st.beta_columns(3)
 
-vice_7 = st.radio(
-    label="Do you chew tobacco?",
-    options=['Yes', 'No'],
-    index=1
-)
+with vice_4_1:
+    vice_4 = st.radio(
+        label="Do you smoke a tobacco pipe?",
+        options=['Yes', 'No'],
+        index=1
+    )
 
-vice_8 = st.radio(
-    label="Do you smoke cigars, cheroots, and/or cigarillos?",
-    options=['Yes', 'No'],
-    index=1
-)
+with vice_5_1:
+    vice_5 = st.radio(
+        label="Do you use kreteks?",
+        options=['Yes', 'No'],
+        index=1
+    )
 
-vice_9 = st.radio(
-    label="Do you chew betel quid with tobacco?",
-    options=['Yes', 'No'],
-    index=1
-)
+with vice_6_1:
+    vice_6 = st.radio(
+        label="Do you snuff by mouth?",
+        options=['Yes', 'No'],
+        index=1
+    )
+
+vice_7_1, vice_8_1, vice_9_1 = st.beta_columns(3)
+
+with vice_7_1:
+    vice_7 = st.radio(
+        label="Do you chew tobacco?",
+        options=['Yes', 'No'],
+        index=1
+    )
+
+with vice_8_1:
+    vice_8 = st.radio(
+        label="Do you smoke cigars, cheroots, and/or cigarillos?",
+        options=['Yes', 'No'],
+        index=1
+    )
+
+with vice_9_1:
+    vice_9 = st.radio(
+        label="Do you chew betel quid with tobacco?",
+        options=['Yes', 'No'],
+        index=1
+    )
 
 
 # ============================================================
