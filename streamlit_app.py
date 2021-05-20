@@ -59,11 +59,10 @@ def cosine_implementation(user_data):
 # ============================================================
 # Result Function : Random Forest Implementation
 def predict(user_data):
-    # m_path = Path(__file__).parent.parent
-    # path = m_path.joinpath('dataset/clean_data.csv')
-    # df = pd.read_csv(str(path))
-    df = pd.read_csv("clean_data.csv")
-
+    m_path = Path(__file__).parent
+    path = m_path.joinpath('dataset/clean_data.csv')
+    df = pd.read_csv(str(path))
+    
     df = df.loc[df['Current contraceptive method'] != 'Not using']
     df['Current contraceptive method'] = df['Current contraceptive method'].replace('Calendar or rhythm method/Periodic abstinence', 'Periodic abstinence', regex=True)
     df['Current contraceptive method'] = df['Current contraceptive method'].replace('Implants/Norplant', 'Implants', regex=True)
