@@ -492,7 +492,7 @@ with st.form("Counseling_Form"):
 
         # Show prediction
         result_holder = predict(user_df)
-        result_text = result_holder[0]
+        result_text = result_holder['0'].values[0]
         st.write(result_text)
         
 
