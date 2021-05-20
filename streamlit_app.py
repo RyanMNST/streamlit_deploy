@@ -11,27 +11,38 @@ st.write("""
 A [CS 321 | CS 322] Project
 """)
 
-# Residential Status
+# Residential Status Features
 residential_status = st.selectbox(
     label="Region", 
     options=[
-        'Autonomous Region in Muslim Mindanao', 
-        'Zamboanga Peninsula', 
-        'Soccskargen', 
-        'Cordillera', 
-        'Caraga',
-        'National Capital', 
-        'Western Visayas', 
-        'Central Visayas', 
-        'Ilocos', 
-        'Cagayan Valley', 
-        'Central Luzon',
-        'Calabarzon', 
-        'Mimaropa', 
+        'Autonomous Region in Muslim Mindanao',
         'Bicol', 
+        'Cagayan Valley',
+        'Calabarzon',
+        'Caraga',
+        'Central Luzon',
+        'Central Visayas', 
+        'Cordillera', 
+        'Davao',
         'Eastern Visayas', 
+        'Ilocos', 
+        'Mimaropa',
+        'National Capital', 
         'Northern Mindanao', 
-        'Davao'
+        'Soccskargen', 
+        'Western Visayas', 
+        'Zamboanga Peninsula', 
         ],
-    index=0
+    index=7
     )
+
+rural_area = st.selectbox(
+    label="Area",
+    options=[
+        'Rural',
+        'Urban'
+    ],
+    index=1
+)
+
+# Age Features
