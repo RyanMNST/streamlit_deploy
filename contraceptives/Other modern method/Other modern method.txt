@@ -1,15 +1,15 @@
-What are hormonal contraceptives?
+<b>What are hormonal contraceptives?</b>
 
 These contraceptives use hormones to
 prevent pregnancy.
 
-What are barrier methods?
+<b>What are barrier methods?</b>
 
 Barrier methods stop sperm from entering the vagina.
 Condoms protect against sexually transmissible infections
 and from unintended pregnancy.
 
-What is emergency contraception?
+<b>What is emergency contraception?</b>
 
 If you are an average weight, the ECP is 98% effective.
 If you weigh more than 70kg, the ECP is less effective and
@@ -19,7 +19,7 @@ effective at preventing pregnancy. It is not a good idea to
 use ECP as your regular method of contraception - it is less
 effective than if you were using a LARC or hormonal method.
 
-What is permanent contraception?
+<b>What is permanent contraception?</b>
 
 Permanent contraception, sometimes called sterilisation, prevents all
 future pregnancies. Permanent contraception is either a vasectomy or a tubal ligation.

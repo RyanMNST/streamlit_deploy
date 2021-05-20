@@ -1,4 +1,4 @@
-What is the rhythm method?
+<b>What is the rhythm method?</b>
 The rhythm method is a type of birth control.
 The rhythm method is also called the fertility awareness method.
 The rhythm method is not as effective at preventing pregnancy as
@@ -6,7 +6,7 @@ other methods, such as taking birth control pills ‒ it is only effective
 about 76 percent of the time ‒ but it appeals to some women who do not
 like the side effects that are possible with other options.
 
-How does the rhythm method work?
+<b>How does the rhythm method work?</b>
 
 Women using the rhythm method monitor their body and analyze their past
 menstrual cycles to try to determine when their fertile days are. The most common
@@ -18,12 +18,12 @@ about 12 hours after being released from the ovaries, sperm can live in a women�
 for a few days, so it is advised that women using the rhythm method avoid sexual
 intercourse for three days before and after ovulation.
 
-What is the biggest drawback to using the rhythm method?
+<b>What is the biggest drawback to using the rhythm method?</b>
 
 Among 100 women in their first year of using the rhythm method,
 24 will typically become pregnant.
 
-What are the other downsides to the rhythm method?
+<b>What are the other downsides to the rhythm method?</b>
 
 Women have to think about these issues every time they want to have sex,
 which many women find to be a burden. Also, the rhythm method provides
@@ -31,14 +31,14 @@ no protection against sexually transmitted diseases. The use of birth
 control medications can give some women relief from pain during and
 before their periods. Users of the rhythm method do not receive such benefits.
 
-What are the benefits to using the rhythm method?
+<b>What are the benefits to using the rhythm method?</b>
 
 Since you will already likely have a very good idea about when you are
 fertile each month, you will be prepared to know the best timing for
 sex. Another major benefit is that you avoid the possible side effects
 that can come with other methods, such as pills, patches, shots or implanted devices.
 
-What are my other options for birth control?
+<b>What are my other options for birth control?</b>
 
 There are many options available today for birth control. Options include condoms,
 spermicide, diaphragms, sponge, or cervical cap. Combining these methods increases
@@ -50,10 +50,9 @@ Shots are about 94 percent effective and the pill, the patch, and the ring are a
 91 percent effective. These procedures include tubal ligation or occlusion for women,
 or a vasectomy for men. When these procedures are done correctly, they are nearly 100 percent effective.
 
-The rhythm method is about 76 percent effective .
+The rhythm method is about 76 percent effective.
 
-What if I realize I have made a mistake and
-had unprotected sex during my fertile time?
+<b>What if I realize I have made a mistake and had unprotected sex during my fertile time?</b>
 
 If you are going to be using the rhythm method as your primary source of
 birth control, you might want to ask your doctor ahead of time about the

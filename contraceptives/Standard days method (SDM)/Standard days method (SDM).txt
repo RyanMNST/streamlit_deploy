@@ -1,6 +1,4 @@
-SDM was found to be more than 95 percent
-effective with proper use and 88 percent
-effective with normal use in an efficacy trial.
+SDM was found to be more than 95 percent effective with proper use and 88 percent effective with normal use in an efficacy trial.
 
 SDM is a simple, modern, fertility awareness-based method of family
 planning that was developed and tested by IRH in 2001. Given its ease
@@ -10,7 +8,7 @@ side effects or health complications of hormonal methods. This family
 planning method is an important addition to the method mix that brings
 new users to family planning and helps many couples prevent unplanned pregnancy.
 
-Effectiveness
+<b>Effectiveness</b>
 
 That means that out of 100 women using the method for one year, fewer
 than five of them would get pregnant if they used SDM correctly. When
@@ -18,7 +16,7 @@ pregnancies occurring with correct use and with incorrect use of the
 method were added together, the total was approximately 12 pregnancies
 for every 100 women/year of method use.
 
-How does SDM work ?
+<b>How does SDM work?</b>
 
 CycleBeads, a color-coded string of beads, facilitates use of the Standard
 Days Method by helping women track their menstrual cycle and identify their
