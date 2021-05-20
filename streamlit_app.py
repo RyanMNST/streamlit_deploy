@@ -90,15 +90,15 @@ def predict(user_data):
         'Unmet need for contraception (definition 3)'
     ])
 
-    X_train = X_encoder.fit_transform(X_train)
-    X_test = X_encoder.transform(X_test)
+    # X_train = X_encoder.fit_transform(X_train)
+    # X_test = X_encoder.transform(X_test)
     rf_classifier = RandomForestClassifier(n_estimators=100)
-    rf_classifier.fit(X_train, y_train)
+    # rf_classifier.fit(X_train, y_train)
 
     model = Pipeline([("preprocessing",X_encoder),("model",rf_classifier)]).fit(X_train, y_train)
     user_encode = model.predict(user_data)
 
-    st.write(rf_classifier.predict(user_encode))
+    st.write(user_encode)
 
 st.write("""
 # System Web Application Version
