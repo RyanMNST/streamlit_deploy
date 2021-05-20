@@ -1,6 +1,3 @@
-https://pubmed.ncbi.nlm.nih.gov/9678098/#:~:text=The%20lactational%20amenorrhea%20method%20is%20at%20least%2098%25%20effective%2C%20comparing,favorably%20with%20other%20contraceptive%20methods.
-
-
 When compared to other contraceptive methods, the lactational amenorrhea approach is at least 98 percent reliable.
 
 Experiments with LAM extended to 9-12 months are ongoing.
@@ -16,3 +13,5 @@ record keeping systems and computing programs, and of national family planning g
 In conclusion, LAM is an efficient family planning method which should be promoted.
 The lactational amenorrhea method should always include the shift to another method
 when its criteria are no longer implemented.
+
+Reference: https://pubmed.ncbi.nlm.nih.gov/9678098

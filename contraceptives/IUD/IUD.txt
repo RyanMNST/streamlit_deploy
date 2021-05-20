@@ -1,5 +1,3 @@
-https://www.nhs.uk/conditions/contraception/how-effective-contraception/#:~:text=Intrauterine%20device%20(IUD)%3A%20more,on%20the%20type%20of%20IUD.
-
 More than 99 percent efficient intrauterine system (IUD). An IUD can last for 5 to 10 years,
 depending on the model, but it can be removed at any time. Depending on the form of IUD, less
 than 1 in 100 women will become pregnant in a year.
@@ -42,3 +40,5 @@ Natural family planning
 
 Up to 1 in 100 women will get pregnant in a year when using this method perfectly.
 Around 24 in 100 women using natural family planning will get pregnant in a year.
+
+Reference: https://www.nhs.uk/conditions/contraception/how-effective-contraception
