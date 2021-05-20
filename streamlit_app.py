@@ -5,6 +5,11 @@ import pandas as pd
 import sklearn as skl
 import matplotlib as plt
 import seaborn as sns
+import pickle
+
+# Load learned model
+loaded_model = pickle.load(open('model.pkl', 'rb'))
+loaded_encoder = pickle.load(open('encoder.pkl', 'rb'))
 
 st.write("""
 # System Web Application Version
