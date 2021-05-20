@@ -10,7 +10,6 @@ import pickle
 from PIL import Image
 from pathlib import Path
 
-
 # Classifer Library
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -23,6 +22,7 @@ import category_encoders as ce
 #Cosine Similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+
 
 # ============================================================
 # Result Function : Cosine Similarity Implementation
@@ -56,6 +56,7 @@ def cosine_implementation(user_data):
     user_data = vectorizer.transform(user_data).toarray()
     index = np.argmax(cosine_similarity(trsfm, user_data))
     return another_df.iloc[index]['Current contraceptive method']
+
 
 # ============================================================
 # Result Function : Random Forest Implementation
