@@ -8,7 +8,11 @@ from pathlib import Path
 def read_data():
     m_path = Path(__file__).parent
     data_path = m_path.joinpath('dataset/clean_data.csv')
-    return pd.read_csv(data_path, index_col=0)
+    df = pd.read_csv(data_path, index_col=0)
+    df['Current contraceptive method'] = df['Current contraceptive method'].replace('Calendar or rhythm method/Periodic abstinence', 'Periodic abstinence', regex=True)
+    df['Current contraceptive method'] = df['Current contraceptive method'].replace('Implants/Norplant', 'Implants', regex=True)
+    df['Current contraceptive method'] = df['Current contraceptive method'].replace('Mucus/Billing/Ovulation', 'Ovulation', regex=True)
+    return df
 
 def app():
     st.markdown(
@@ -52,6 +56,7 @@ def app():
     'Births in past year',
     'Currently pregnant',
     'Total number all pregnacies',
+    'Current contraceptive method',
     'Decision maker for using contraception',
     'Decision maker for not using contraception',
     'Preferred future method',
