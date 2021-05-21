@@ -124,5 +124,5 @@ def app():
 
             if pairplot_button:
                 col2.altair_chart(
-                    pairplot(data, vars=["Respondent's current age", "Age at first sex","Age of respondent at 1st birth","Total number all pregnacies","Births in last five years","Births in last three years","Births in past year"])
+                    pairplot(data, vars=["Respondent\'s current age", "Age at first sex","Age of respondent at 1st birth","Total number all pregnacies","Births in last five years","Births in last three years","Births in past year"])
                 )
