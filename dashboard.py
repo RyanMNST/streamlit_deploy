@@ -65,7 +65,7 @@ def app():
     st.markdown("**Random Sample of the dataset**")
     st.write(data.sample(n=25))
 
-    features = ["Respondent's current age",
+    features = ["Respondent\'s current age",
     "Age of respondent at 1st birth",
     "Age at first menstrual period",
     "Recent sexual activity",
