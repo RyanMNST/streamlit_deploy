@@ -35,11 +35,9 @@ def cosine_implementation(user_data):
     df = df.loc[df['Current contraceptive method'] != 'Not using']
     df.drop(columns=['Unnamed: 0'], axis=1)
 
-    another_df = df.copy()
-
-    another_df['Current contraceptive method'] = another_df['Current contraceptive method'].replace('Calendar or rhythm method/Periodic abstinence', 'Periodic abstinence', regex=True)
-    another_df['Current contraceptive method'] = another_df['Current contraceptive method'].replace('Implants/Norplant', 'Implants', regex=True)
-    another_df['Current contraceptive method'] = another_df['Current contraceptive method'].replace('Mucus/Billing/Ovulation', 'Ovulation', regex=True)
+    df['Current contraceptive method'] = df['Current contraceptive method'].replace('Calendar or rhythm method/Periodic abstinence', 'Periodic abstinence', regex=True)
+    df['Current contraceptive method'] = df['Current contraceptive method'].replace('Implants/Norplant', 'Implants', regex=True)
+    df['Current contraceptive method'] = df['Current contraceptive method'].replace('Mucus/Billing/Ovulation', 'Ovulation', regex=True)
 
     vectorizer = TfidfVectorizer()
     #convert all columns to str
@@ -49,13 +47,18 @@ def cosine_implementation(user_data):
     for column_name in user_data.columns:
         user_data[column_name] = user_data[column_name].astype(str)
 
+    # Constructing the corpus
     corp = df.to_numpy()
     corpus = corp.flatten().tolist()
+
+    #Fitting the vectorizer using the corpus
     trsfm = vectorizer.fit_transform(corpus)
+
+    #Generating the prediction through cosine similarity
     user_data = user_data.values.flatten().tolist()
     user_data = vectorizer.transform(user_data).toarray()
-    index = np.argmax(cosine_similarity(trsfm, user_data))
-    return another_df.iloc[index]['Current contraceptive method']
+    index = np.argmax(cosine_similarity(trsfm, user_data), axis=1)
+    return df.iloc[index]['Current contraceptive method']
 
 
 # ============================================================
