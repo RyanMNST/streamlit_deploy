@@ -166,7 +166,7 @@ def show_result(contraceptive_result):
 def app():
     st.write("""
     # Finals System Web Application Version
-    A [CS 321 | CS 322] Project
+    A [CS 321 | CS 322] Project - Recommender System
     """)
 
 

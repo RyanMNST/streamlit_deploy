@@ -8,5 +8,5 @@ pages = {
     }
 
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Select your page", tuple(pages.keys()))
+page = st.sidebar.selectbox("Select your page", tuple(pages.keys()))
 pages[page].app()
