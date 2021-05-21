@@ -4,7 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path
 
-st.markdown(
+def app():
+    st.markdown(
         f"""
 <style>
     .reportview-container .main .block-container{{
@@ -23,8 +24,6 @@ st.markdown(
         unsafe_allow_html=True,
     )
 
-
-def app():
     st.write("""
     # Finals System Web Application Version
     A [CS 321 | CS 322] Project - Dataset Dashboard
@@ -78,4 +77,4 @@ def app():
     # col1.write(data[chosen_feature].value_counts().sort_values(ascending=False))
 
     col2.write("Chart")
-    col2.bar_chart(data[chosen_feature].value_counts(), width=500, height=500)
+    col2.bar_chart(data[chosen_feature].value_counts(), width=0, height=0)
