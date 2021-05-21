@@ -163,7 +163,7 @@ def show_result(contraceptive_result):
     st.markdown("<img src='"+img_url+"' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center; text-align: justify;'>"+ lines +"</p>", unsafe_allow_html=True)    
 
-def app():
+def app():  
     st.write("""
     # Finals System Web Application Version
     A [CS 321 | CS 322] Project - Recommender System
