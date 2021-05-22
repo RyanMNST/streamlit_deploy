@@ -4,7 +4,6 @@ import numpy as np
 import altair as alt
 from pathlib import Path
 
-@st.cache(allow_output_mutation=True)
 def read_data():
     m_path = Path(__file__).parent
     data_path = m_path.joinpath("dataset/clean_data.csv")
@@ -27,8 +26,8 @@ def pairplot(data, vars=None):
                 alt.Y(alt.repeat("row"), type="quantitative"),
                 color="Origin:N"
             ).properties(
-                width=250,
-                height=250
+                width=300,
+                height=300
             ).repeat(
                 row=vars,
                 column=vars
@@ -111,18 +110,41 @@ def app():
     paper_expander = st.beta_expander(label="Graphs from the Paper")
     with paper_expander:
         with st.form("Graphs"):
-            for column_name in data.columns:
-                if data[column_name].dtypes == np.object:
-                    data[column_name] = data[column_name].astype("category")
-                    data[column_name] = data[column_name].cat.codes
-                    data[column_name] = data[column_name].astype(int)
+            m_path = Path(__file__).parent
+            # d = read_data()
+            # d["Respondent\\'s current age"] = d["Respondent's current age"]
+            # for column_name in d.columns:
+            #     if d[column_name].dtypes == np.object:
+            #         d[column_name] = d[column_name].astype("category")
+            #         d[column_name] = d[column_name].cat.codes
+            #         d[column_name] = d[column_name].astype(int)
 
-            col1, col2 = st.beta_columns(2)
-
-            pairplot_button = col1.form_submit_button(label="Pair plot relationship (Age Features - Pregnancy Features)")
-            heatmap = col1.form_submit_button(label="Heatmap (Age - Maternal History)")
+            pairplot_button = st.form_submit_button(label="Pair plot relationship (Age Features - Pregnancy Features)")
+            heatmap_button = st.form_submit_button(label="Heatmap (Age - Maternal History)")
 
             if pairplot_button:
-                col2.altair_chart(
-                    pairplot(data, vars=["Respondent\\'s current age", "Age at first sex","Age of respondent at 1st birth","Total number all pregnacies","Births in last five years","Births in last three years","Births in past year"])
-                )
+                graph = 'pairplot'
+                # img_path = str(m_path.joinpath('graphs/' + graph + '.png'))
+                # st.markdown("<img src='"+img_path+"' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
+
+
+            elif heatmap_button:
+                graph = 'heatmap'
+                # img_path = m_path.joinpath('graphs/' + graph + '.png')
+                # st.markdown("<img src='"+img_path+"' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
+
+
+
+            
+
+            # if pairplot_button:
+            #     st.altair_chart(
+            #         pairplot(data, vars=["Respondent\\'s current age", "Age at first sex","Age of respondent at 1st birth","Total number all pregnacies","Births in last five years","Births in last three years","Births in past year"]),
+            #         use_container_width=False)
+
+            # elif heatmap_button:
+            #     st.altair_chart(alt.Chart(d).mark_rect().encode(
+            #     x=alt.X('variable:N', title="SampleID"),
+            #     y=alt.Y('ID:N', title="Gene"),
+            #     color=alt.Color('value:Q', title="Intensity")
+            #     ))
