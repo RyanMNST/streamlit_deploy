@@ -113,6 +113,8 @@ def app():
             pairplot_button = st.form_submit_button(label="Pair plot relationship (Age Features - Pregnancy Features)")
             heatmap_button = st.form_submit_button(label="Heatmap (Age Features - Pregnancy Features)")
             future_button = st.form_submit_button(label="Bar Graph (Preferred Future Method")
+            residence_button = st.form_submit_button(label="Pie Chart (Type of Residence")
+
 
 
             if pairplot_button:
@@ -128,5 +130,10 @@ def app():
 
             elif future_button:
                 graph = 'future_method'
+                img_path = 'https://raw.githubusercontent.com/RyanMNST/streamlit_deploy/main/graphs/' + graph + '.png'
+                st.markdown("<img src='"+img_path+"' style='display: block; margin-left: auto; margin-right: auto; width: 60%;'>", unsafe_allow_html=True)
+
+            elif residence_button:
+                graph = 'type_of_residence'
                 img_path = 'https://raw.githubusercontent.com/RyanMNST/streamlit_deploy/main/graphs/' + graph + '.png'
                 st.markdown("<img src='"+img_path+"' style='display: block; margin-left: auto; margin-right: auto; width: 60%;'>", unsafe_allow_html=True)
