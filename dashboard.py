@@ -110,41 +110,16 @@ def app():
     paper_expander = st.beta_expander(label="Graphs from the Paper")
     with paper_expander:
         with st.form("Graphs"):
-            m_path = Path(__file__).parent
-            # d = read_data()
-            # d["Respondent\\'s current age"] = d["Respondent's current age"]
-            # for column_name in d.columns:
-            #     if d[column_name].dtypes == np.object:
-            #         d[column_name] = d[column_name].astype("category")
-            #         d[column_name] = d[column_name].cat.codes
-            #         d[column_name] = d[column_name].astype(int)
-
             pairplot_button = st.form_submit_button(label="Pair plot relationship (Age Features - Pregnancy Features)")
-            heatmap_button = st.form_submit_button(label="Heatmap (Age - Maternal History)")
+            heatmap_button = st.form_submit_button(label="Heatmap (Age Features - Pregnancy Features)")
 
             if pairplot_button:
                 graph = 'pairplot'
-                # img_path = str(m_path.joinpath('graphs/' + graph + '.png'))
-                # st.markdown("<img src='"+img_path+"' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
+                img_path = 'https://raw.githubusercontent.com/RyanMNST/streamlit_deploy/main/graphs/' + graph + '.png'
+                st.markdown("<img src='"+img_path+"' style='display: block; margin-left: auto; margin-right: auto; width: 100%;'>", unsafe_allow_html=True)
 
 
             elif heatmap_button:
                 graph = 'heatmap'
-                # img_path = m_path.joinpath('graphs/' + graph + '.png')
-                # st.markdown("<img src='"+img_path+"' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
-
-
-
-            
-
-            # if pairplot_button:
-            #     st.altair_chart(
-            #         pairplot(data, vars=["Respondent\\'s current age", "Age at first sex","Age of respondent at 1st birth","Total number all pregnacies","Births in last five years","Births in last three years","Births in past year"]),
-            #         use_container_width=False)
-
-            # elif heatmap_button:
-            #     st.altair_chart(alt.Chart(d).mark_rect().encode(
-            #     x=alt.X('variable:N', title="SampleID"),
-            #     y=alt.Y('ID:N', title="Gene"),
-            #     color=alt.Color('value:Q', title="Intensity")
-            #     ))
+                img_path = 'https://raw.githubusercontent.com/RyanMNST/streamlit_deploy/main/graphs/' + graph + '.png'
+                st.markdown("<img src='"+img_path+"' style='display: block; margin-left: auto; margin-right: auto; width: 60%;'>", unsafe_allow_html=True)
