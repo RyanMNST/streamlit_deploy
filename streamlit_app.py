@@ -220,18 +220,21 @@ def app():
         with a_1:
             current_age = st.number_input(
             label="Current Age",
+            min_value=0,
             max_value=49,
         )
 
         with a_2:
             age_first_birth = st.number_input(
             label="Age at First Birth",
+            min_value=0,
             max_value=49,
         )
 
         with a_3:
             age_first_period = st.number_input(
             label="Age at First Menstrual Period",
+            min_value=0,
             max_value=49,
         )
 
