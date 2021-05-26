@@ -551,7 +551,8 @@ def app():
             # Show prediction
             result_holder = predict(user_df)
             show_result(result_holder)
-        elif submit_button_AI:
+            
+        if submit_button_AI:
             st.write("Your suggested contraceptive is...")
 
             user_df = pd.DataFrame({
