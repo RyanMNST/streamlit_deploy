@@ -58,6 +58,7 @@ def cosine_implementation(user_data):
     user_data = user_data.values.flatten().tolist()
     user_data = vectorizer.transform(user_data).toarray()
     index = np.argmax(cosine_similarity(trsfm, user_data))
+    st.write(index)
     return df.iloc[index]['Current contraceptive method']
 
 
