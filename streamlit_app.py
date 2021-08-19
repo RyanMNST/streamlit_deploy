@@ -174,7 +174,7 @@ def app():
         # ============================================================
         # Residential Status Features
         st.markdown("**Residential Status Features**")
-        rs_1, rs_2 = st.beta_columns(2)
+        rs_1, rs_2 = st.columns(2)
 
         with rs_1:
             residential_status = st.selectbox(
@@ -215,7 +215,7 @@ def app():
         # ============================================================
         # Age Features
         st.markdown("**Age Features**")
-        a_1, a_2, a_3 = st.beta_columns(3)
+        a_1, a_2, a_3 = st.columns(3)
 
         with a_1:
             current_age = st.number_input(
@@ -279,7 +279,7 @@ def app():
             index=0
         )
 
-        swp_3_1, swp_2_1 = st.beta_columns(2)
+        swp_3_1, swp_2_1 = st.columns(2)
 
         with swp_2_1:
             swp_2 = st.radio(
@@ -311,7 +311,7 @@ def app():
             index=0
         )
 
-        rb_2_1, rb_3_1, rb_4_1 = st.beta_columns(3)
+        rb_2_1, rb_3_1, rb_4_1 = st.columns(3)
 
         with rb_2_1:
             rb_2 = st.number_input(
@@ -335,7 +335,7 @@ def app():
         # ============================================================
         # Decision on Contraception Features
         st.markdown("**Decision on Contraception Features**")
-        dc_1_1, dc_2_1 = st.beta_columns(2)
+        dc_1_1, dc_2_1 = st.columns(2)
 
         with dc_1_1:
             dc_1 = st.selectbox(
@@ -393,7 +393,7 @@ def app():
         # Do you smoke/indulge in the following?
         st.markdown("**Vices Features**")
 
-        vice_1_1, vice_2_1, vice_3_1 = st.beta_columns(3)
+        vice_1_1, vice_2_1, vice_3_1 = st.columns(3)
 
         with vice_1_1:
             vice_1 = st.radio(
@@ -416,7 +416,7 @@ def app():
                 index=1
             )
 
-        vice_4_1, vice_5_1, vice_6_1 = st.beta_columns(3)
+        vice_4_1, vice_5_1, vice_6_1 = st.columns(3)
 
         with vice_4_1:
             vice_4 = st.radio(
@@ -439,7 +439,7 @@ def app():
                 index=1
             )
 
-        vice_7_1, vice_8_1, vice_9_1 = st.beta_columns(3)
+        vice_7_1, vice_8_1, vice_9_1 = st.columns(3)
 
         with vice_7_1:
             vice_7 = st.radio(
