@@ -6,7 +6,6 @@ import pandas as pd
 import sklearn as skl
 import matplotlib as plt
 import seaborn as sns
-import pickle
 from PIL import Image
 from pathlib import Path
 
@@ -19,7 +18,7 @@ from sklearn.metrics import classification_report
 from sklearn.metrics.pairwise import cosine_similarity
 import category_encoders as ce
 
-#Cosine Similarity
+# Cosine Similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -35,12 +34,15 @@ def cosine_implementation(user_data):
     df = df.loc[df['Current contraceptive method'] != 'Not using']
     df.drop(columns=['Unnamed: 0'], axis=1)
 
-    df['Current contraceptive method'] = df['Current contraceptive method'].replace('Calendar or rhythm method/Periodic abstinence', 'Periodic abstinence', regex=True)
-    df['Current contraceptive method'] = df['Current contraceptive method'].replace('Implants/Norplant', 'Implants', regex=True)
-    df['Current contraceptive method'] = df['Current contraceptive method'].replace('Mucus/Billing/Ovulation', 'Ovulation', regex=True)
+    df['Current contraceptive method'] = df['Current contraceptive method'].replace(
+        'Calendar or rhythm method/Periodic abstinence', 'Periodic abstinence', regex=True)
+    df['Current contraceptive method'] = df['Current contraceptive method'].replace(
+        'Implants/Norplant', 'Implants', regex=True)
+    df['Current contraceptive method'] = df['Current contraceptive method'].replace(
+        'Mucus/Billing/Ovulation', 'Ovulation', regex=True)
 
     vectorizer = TfidfVectorizer()
-    #convert all columns to str
+    # convert all columns to str
     for column_name in df.columns:
         df[column_name] = df[column_name].astype(str)
 
@@ -51,10 +53,10 @@ def cosine_implementation(user_data):
     corp = df.to_numpy()
     corpus = corp.flatten().tolist()
 
-    #Fitting the vectorizer using the corpus
+    # Fitting the vectorizer using the corpus
     trsfm = vectorizer.fit_transform(corpus)
 
-    #Generating the prediction through cosine similarity
+    # Generating the prediction through cosine similarity
     user_data = user_data.values.flatten().tolist()
     user_data = vectorizer.transform(user_data).toarray()
     index = np.argmax(cosine_similarity(trsfm, user_data))
@@ -67,46 +69,50 @@ def predict(user_data):
     m_path = Path(__file__).parent
     path = m_path.joinpath('dataset/clean_data.csv')
     df = pd.read_csv(str(path))
-    
+
     df = df.loc[df['Current contraceptive method'] != 'Not using']
-    df['Current contraceptive method'] = df['Current contraceptive method'].replace('Calendar or rhythm method/Periodic abstinence', 'Periodic abstinence', regex=True)
-    df['Current contraceptive method'] = df['Current contraceptive method'].replace('Implants/Norplant', 'Implants', regex=True)
-    df['Current contraceptive method'] = df['Current contraceptive method'].replace('Mucus/Billing/Ovulation', 'Ovulation', regex=True)
+    df['Current contraceptive method'] = df['Current contraceptive method'].replace(
+        'Calendar or rhythm method/Periodic abstinence', 'Periodic abstinence', regex=True)
+    df['Current contraceptive method'] = df['Current contraceptive method'].replace(
+        'Implants/Norplant', 'Implants', regex=True)
+    df['Current contraceptive method'] = df['Current contraceptive method'].replace(
+        'Mucus/Billing/Ovulation', 'Ovulation', regex=True)
 
     columns = ["Respondent's current age",
-                'Age of respondent at 1st birth',
-                'Age at first menstrual period',
-                'Recent sexual activity',
-                'Region',
-                'Type of place of residence',
-                'Current marital status',
-                'Births in last five years',
-                'Births in last three years',
-                'Births in past year',
-                'Currently pregnant',
-                'Total number all pregnacies',
-                'Decision maker for using contraception',
-                'Decision maker for not using contraception',
-                'Preferred future method',
-                'Smokes cigarettes',
-                'Smokes pipe full of tobacco',
-                'Chews tobacco',
-                'Snuffs by nose',
-                'Smokes kreteks',
-                'Smokes cigars, cheroots or cigarillos',
-                'Smokes water pipe',
-                'Snuff by mouth',
-                'Chews betel quid with tobacco',
-                "Husband's desire for children",
-                'Exposure',
-                'Unmet need',
-                'Unmet need (definition 2)',
-                'Unmet need for contraception (definition 3)'
-                ]
+               'Age of respondent at 1st birth',
+               'Age at first menstrual period',
+               'Recent sexual activity',
+               'Region',
+               'Type of place of residence',
+               'Current marital status',
+               'Births in last five years',
+               'Births in last three years',
+               'Births in past year',
+               'Currently pregnant',
+               'Total number all pregnacies',
+               'Decision maker for using contraception',
+               'Decision maker for not using contraception',
+               'Preferred future method',
+               'Smokes cigarettes',
+               'Smokes pipe full of tobacco',
+               'Chews tobacco',
+               'Snuffs by nose',
+               'Smokes kreteks',
+               'Smokes cigars, cheroots or cigarillos',
+               'Smokes water pipe',
+               'Snuff by mouth',
+               'Chews betel quid with tobacco',
+               "Husband's desire for children",
+               'Exposure',
+               'Unmet need',
+               'Unmet need (definition 2)',
+               'Unmet need for contraception (definition 3)'
+               ]
     X = df[columns]
     y = df['Current contraceptive method']
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.3, random_state=1)
 
     X_encoder = ce.OneHotEncoder(cols=[
         'Recent sexual activity',
@@ -139,7 +145,8 @@ def predict(user_data):
     # rf_classifier.fit(X_train, y_train)
 
     # Preprocess, Use Model, and Train
-    model = Pipeline([("preprocessing",X_encoder),("model",rf_classifier)]).fit(X_train, y_train)
+    model = Pipeline([("preprocessing", X_encoder),
+                     ("model", rf_classifier)]).fit(X_train, y_train)
     user_encode = model.predict(user_data)
 
     # Retrieve and return text
@@ -152,23 +159,27 @@ def predict(user_data):
 def show_result(contraceptive_result):
     m_path = Path(__file__).parent
 
-    img_url='https://raw.githubusercontent.com/RyanMNST/streamlit_deploy/main/contraceptives/'+contraceptive_result+'/'+contraceptive_result+'.png'
-    text_path = m_path.joinpath('contraceptives/' + contraceptive_result + '/'+contraceptive_result+'.txt')
+    img_url = f'https://raw.githubusercontent.com/RyanMNST/streamlit_deploy/main/contraceptives/{contraceptive_result}/{contraceptive_result}.png'
+    text_path = m_path.joinpath(
+        'contraceptives/' + contraceptive_result + '/'+contraceptive_result+'.txt')
     lines = text_path.read_text()
     f_lines = lines.encode('cp1252')
     # lines = f_lines.decode('UTF-8')
     lines = f_lines.decode('ISO 8859-1')
 
-    st.markdown("<h1 style='text-align: center; color: black;'>"+contraceptive_result+"</h1>", unsafe_allow_html=True)
-    st.markdown("<img src='"+img_url+"' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center; text-align: justify;'>"+ lines +"</p>", unsafe_allow_html=True)    
+    st.markdown("<h1 style='text-align: center; color: black;'>" +
+                contraceptive_result+"</h1>", unsafe_allow_html=True)
+    st.markdown("<img src='"+img_url +
+                "' style='display: block; margin-left: auto; margin-right: auto; width: 50%;'>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center; text-align: justify;'>" +
+                lines + "</p>", unsafe_allow_html=True)
 
-def app():  
+
+def app():
     st.write("""
     # Finals System Web Application Version
     A [CS 321 | CS 322] Project - Recommender System
     """)
-
 
     with st.form("Counseling_Form"):
         # ============================================================
@@ -178,39 +189,38 @@ def app():
 
         with rs_1:
             residential_status = st.selectbox(
-            label="Region", 
-            options=[
-                'Autonomous Region in Muslim Mindanao',
-                'Bicol', 
-                'Cagayan Valley',
-                'Calabarzon',
-                'Caraga',
-                'Central Luzon',
-                'Central Visayas', 
-                'Cordillera', 
-                'Davao',
-                'Eastern Visayas', 
-                'Ilocos', 
-                'Mimaropa',
-                'National Capital', 
-                'Northern Mindanao', 
-                'Soccskargen', 
-                'Western Visayas', 
-                'Zamboanga Peninsula', 
+                label="Region",
+                options=[
+                    'Autonomous Region in Muslim Mindanao',
+                    'Bicol',
+                    'Cagayan Valley',
+                    'Calabarzon',
+                    'Caraga',
+                    'Central Luzon',
+                    'Central Visayas',
+                    'Cordillera',
+                    'Davao',
+                    'Eastern Visayas',
+                    'Ilocos',
+                    'Mimaropa',
+                    'National Capital',
+                    'Northern Mindanao',
+                    'Soccskargen',
+                    'Western Visayas',
+                    'Zamboanga Peninsula',
                 ],
-            index=7
+                index=7
             )
 
         with rs_2:
             rural_area = st.selectbox(
-            label="Area",
-            options=[
-                'Rural',
-                'Urban'
-            ],
-            index=1
-        )
-
+                label="Area",
+                options=[
+                    'Rural',
+                    'Urban'
+                ],
+                index=1
+            )
 
         # ============================================================
         # Age Features
@@ -219,63 +229,61 @@ def app():
 
         with a_1:
             current_age = st.number_input(
-            label="Current Age",
-            min_value=0,
-            max_value=49,
-        )
+                label="Current Age",
+                min_value=0,
+                max_value=49,
+            )
 
         with a_2:
             age_first_birth = st.number_input(
-            label="Age at First Birth",
-            min_value=0,
-            max_value=49,
-        )
+                label="Age at First Birth",
+                min_value=0,
+                max_value=49,
+            )
 
         with a_3:
             age_first_period = st.number_input(
-            label="Age at First Menstrual Period",
-            min_value=0,
-            max_value=49,
-        )
-
+                label="Age at First Menstrual Period",
+                min_value=0,
+                max_value=49,
+            )
 
         # ============================================================
         # Sexual Activity Information Features
         st.markdown("**Sexual Activity Information Features**")
         recent_sex_act = st.selectbox(
-            label="Recent Sexual Activity", 
+            label="Recent Sexual Activity",
             options=[
-                'Active in last 4 weeks', 
+                'Active in last 4 weeks',
                 'Not active in last 4 weeks - not postpartum abstinence',
                 'Not active in last 4 weeks - postpartum abstinence'
-                ],
+            ],
             index=0
         )
 
         husband_desire = st.selectbox(
             label="Husband's Desire for Children",
             options=[
-                "Both want same",
                 "No desire",
+                "Both want same",
+                "Husband wants fewer",
                 "Husband wants more",
                 "Don't know",
-                "Husband wants fewer",
-                ],
+            ],
             index=0
         )
-
 
         # ============================================================
         # Status of Woman and Pregnancy Features
         st.markdown("**Status of Woman and Pregnancy Features**")
         swp_1 = st.selectbox(
-            label="Current pregnancy status?", 
+            label="Current pregnancy status?",
             options=[
-                'Fecund', 
-                'Postpartum Amenorrheic', 
-                'Infecund, menopausal', 
+                'Fecund',
+                'Postpartum Amenorrheic',
+                'Infecund, menopausal',
                 'Pregnant'
-                ],
+            ],
             index=0
         )
 
@@ -294,20 +302,19 @@ def app():
                 min_value=0,
             )
 
-
         # ============================================================
         # Recent Births Features
         st.markdown("**Recent Births Features**")
         rb_1 = st.selectbox(
-            label="Current Marital Status", 
+            label="Current Marital Status",
             options=[
-                'Married', 
-                'Widowed', 
-                'No longer living together/separated', 
-                'Divorced', 
+                'Never in union',
                 'Living with partner',
-                'Never in union'
-                ],
+                'Married',
+                'Widowed',
+                'Divorced',
+                'No longer living together/separated',
+            ],
             index=0
         )
 
@@ -331,7 +338,6 @@ def app():
                 min_value=0,
             )
 
-
         # ============================================================
         # Decision on Contraception Features
         st.markdown("**Decision on Contraception Features**")
@@ -339,14 +345,14 @@ def app():
 
         with dc_1_1:
             dc_1 = st.selectbox(
-                label="Decision maker for using a contraception", 
+                label="Decision maker for using a contraception",
                 options=[
-                    'Joint decision', 
-                    'None', 
-                    'Mainly husband, partner', 
-                    'Mainly respondent', 
+                    'None',
+                    'Mainly respondent',
+                    'Mainly husband, partner',
+                    'Joint decision',
                     'Other'
-                    ],
+                ],
                 index=0
             )
 
@@ -354,40 +360,39 @@ def app():
             dc_2 = st.selectbox(
                 label="Decision maker for not using a contraception",
                 options=[
-                    'Joint decision', 
-                    'None', 
-                    'Mainly husband, partner', 
-                    'Mainly respondent', 
+                    'None',
+                    'Mainly respondent',
+                    'Mainly husband, partner',
+                    'Joint decision',
                     'Other',
-                    ],
+                ],
                 index=0
             )
 
         dc_3 = st.selectbox(
             label="Preferred future contraception method",
             options=[
-                'Not using', 
-                'Pill', 
-                'Implants/Norplant', 
-                'IUD', 
+                'Not using',
+                'Pill',
                 'Injections',
-                'Female sterilization', 
-                'Male condom', 
+                'Female sterilization',
                 'Withdrawal',
-                'Sympothermal',
+                'IUD',
+                'Implants/Norplant',
+                'Calendar or rhythm method/Periodic abstinence',
+                'Male condom',
                 'Other traditional method',
-                'Calendar or rhythm method/Periodic abstinence', 
                 'Patch',
-                'Mucus/Billing/Ovulation', 
-                'Basal Body temperature',
-                'Other modern method', 
-                'Male sterilization', 
-                'Female condom',
+                'Sympothermal',
+                'Male sterilization',
                 'Standard days method (SDM)',
-                ],
+                'Other modern method',
+                'Mucus/Billing/Ovulation',
+                'Female condom',
+                'Basal Body temperature',
+            ],
             index=0
         )
-
 
         # ============================================================
         # Do you smoke/indulge in the following?
@@ -462,90 +467,92 @@ def app():
                 index=1
             )
 
-
         # ============================================================
         # Unmet Needs Features
         st.markdown("**Unmet Needs Features**")
         unmet_need_1 = st.selectbox(
-            label="Unmet Need (1)", 
+            label="Unmet Need (1)",
             options=[
-                'Using for spacing', 
-                'No unmet need', 
-                '99', 
-                'Using for limiting', 
+                'No unmet need',
+                'Unmet need for limiting',
+                'Unmet need for spacing',
                 'Not married and no sex in last 30 days',
-                'Unmet need for spacing', 
-                'Infecund, menopausal', 
-                'Unmet need for limiting'
-                ],
-            index=1
+                'Using for limiting',
+                'Using for spacing',
+                'Infecund, menopausal',
+                '99',
+            ],
+            index=0
         )
 
         unmet_need_2 = st.selectbox(
             label="Unmet Need (2)",
             options=[
-                'Using for spacing', 
-                'No unmet need', 
-                'Infecund, menopausal', 
+                'No unmet need',
+                'Unmet need for limiting',
+                'Unmet need for spacing',
+                'Not married and no sex in last 30 days',
                 'Using for limiting',
-                'Not married and no sex in last 30 days', 
-                'Unmet need for spacing', 
-                'Unmet need for limiting'
-                ],
-            index=1
+                'Using for spacing',
+                'Infecund, menopausal',
+                '99',
+            ],
+            index=0
         )
 
         unmet_need_3 = st.selectbox(
-            label="Unmet Need (3)", 
+            label="Unmet Need (3)",
             options=[
-                'Using for spacing', 
-                'No unmet need', 
-                '99', 
-                'Using for limiting', 
+                'No unmet need',
+                'Unmet need for limiting',
+                'Unmet need for spacing',
                 'Not married and no sex in last 30 days',
-                'Unmet need for spacing', 
-                'Infecund, menopausal', 
-                'Unmet need for limiting'
-                ],
-            index=1
+                'Using for limiting',
+                'Using for spacing',
+                'Infecund, menopausal',
+                '99',
+            ],
+            index=0
         )
 
-        submit_button_DS = st.form_submit_button(label="Submit Information - Random Forest")
-        submit_button_AI = st.form_submit_button(label="Submit Information - Cosine Similarity")
+        submit_button_DS = st.form_submit_button(
+            label="Submit Information - Random Forest")
+        submit_button_AI = st.form_submit_button(
+            label="Submit Information - Cosine Similarity")
 
         if submit_button_DS:
             st.write("Your suggested contraceptive is...")
 
             user_df = pd.DataFrame({
-                "Respondent's current age":[current_age],
-                'Age of respondent at 1st birth':[age_first_birth],
-                'Age at first menstrual period':[age_first_period],
-                'Recent sexual activity':[recent_sex_act],
-                'Region':[residential_status],
-                'Type of place of residence':[rural_area],
-                'Current marital status':[rb_1],
-                'Births in last five years':[rb_2],
-                'Births in last three years':[rb_3],
-                'Births in past year':[rb_4],
-                'Currently pregnant':[swp_2],
-                'Total number all pregnacies':[swp_3],
-                'Decision maker for using contraception':[dc_1],
-                'Decision maker for not using contraception':[dc_2],
-                'Preferred future method':[dc_3],
-                'Smokes cigarettes':[vice_1],
-                'Smokes pipe full of tobacco':[vice_4],
-                'Chews tobacco':[vice_7],
-                'Snuffs by nose':[vice_2],
-                'Smokes kreteks':[vice_5],
-                'Smokes cigars, cheroots or cigarillos':[vice_8],
-                'Smokes water pipe':[vice_3],
-                'Snuff by mouth':[vice_6],
-                'Chews betel quid with tobacco':[vice_9],
-                "Husband's desire for children":[husband_desire],
-                'Exposure':[swp_1],
-                'Unmet need':[unmet_need_1],
-                'Unmet need (definition 2)':[unmet_need_2],
-                'Unmet need for contraception (definition 3)':[unmet_need_3],
+                "Respondent's current age": [current_age],
+                'Age of respondent at 1st birth': [age_first_birth],
+                'Age at first menstrual period': [age_first_period],
+                'Recent sexual activity': [recent_sex_act],
+                'Region': [residential_status],
+                'Type of place of residence': [rural_area],
+                'Current marital status': [rb_1],
+                'Births in last five years': [rb_2],
+                'Births in last three years': [rb_3],
+                'Births in past year': [rb_4],
+                'Currently pregnant': [swp_2],
+                'Total number all pregnacies': [swp_3],
+                'Decision maker for using contraception': [dc_1],
+                'Decision maker for not using contraception': [dc_2],
+                'Preferred future method': [dc_3],
+                'Smokes cigarettes': [vice_1],
+                'Smokes pipe full of tobacco': [vice_4],
+                'Chews tobacco': [vice_7],
+                'Snuffs by nose': [vice_2],
+                'Smokes kreteks': [vice_5],
+                'Smokes cigars, cheroots or cigarillos': [vice_8],
+                'Smokes water pipe': [vice_3],
+                'Snuff by mouth': [vice_6],
+                'Chews betel quid with tobacco': [vice_9],
+                "Husband's desire for children": [husband_desire],
+                'Exposure': [swp_1],
+                'Unmet need': [unmet_need_1],
+                'Unmet need (definition 2)': [unmet_need_2],
+                'Unmet need for contraception (definition 3)': [unmet_need_3],
             })
 
             # Show prediction
@@ -556,35 +563,35 @@ def app():
             st.write("Your suggested contraceptive is...")
 
             user_df = pd.DataFrame({
-                "Respondent's current age":[current_age],
-                'Age of respondent at 1st birth':[age_first_birth],
-                'Age at first menstrual period':[age_first_period],
-                'Recent sexual activity':[recent_sex_act],
-                'Region':[residential_status],
-                'Type of place of residence':[rural_area],
-                'Current marital status':[rb_1],
-                'Births in last five years':[rb_2],
-                'Births in last three years':[rb_3],
-                'Births in past year':[rb_4],
-                'Currently pregnant':[swp_2],
-                'Total number all pregnacies':[swp_3],
-                'Decision maker for using contraception':[dc_1],
-                'Decision maker for not using contraception':[dc_2],
-                'Preferred future method':[dc_3],
-                'Smokes cigarettes':[vice_1],
-                'Smokes pipe full of tobacco':[vice_4],
-                'Chews tobacco':[vice_7],
-                'Snuffs by nose':[vice_2],
-                'Smokes kreteks':[vice_5],
-                'Smokes cigars, cheroots or cigarillos':[vice_8],
-                'Smokes water pipe':[vice_3],
-                'Snuff by mouth':[vice_6],
-                'Chews betel quid with tobacco':[vice_9],
-                "Husband's desire for children":[husband_desire],
-                'Exposure':[swp_1],
-                'Unmet need':[unmet_need_1],
-                'Unmet need (definition 2)':[unmet_need_2],
-                'Unmet need for contraception (definition 3)':[unmet_need_3],
+                "Respondent's current age": [current_age],
+                'Age of respondent at 1st birth': [age_first_birth],
+                'Age at first menstrual period': [age_first_period],
+                'Recent sexual activity': [recent_sex_act],
+                'Region': [residential_status],
+                'Type of place of residence': [rural_area],
+                'Current marital status': [rb_1],
+                'Births in last five years': [rb_2],
+                'Births in last three years': [rb_3],
+                'Births in past year': [rb_4],
+                'Currently pregnant': [swp_2],
+                'Total number all pregnacies': [swp_3],
+                'Decision maker for using contraception': [dc_1],
+                'Decision maker for not using contraception': [dc_2],
+                'Preferred future method': [dc_3],
+                'Smokes cigarettes': [vice_1],
+                'Smokes pipe full of tobacco': [vice_4],
+                'Chews tobacco': [vice_7],
+                'Snuffs by nose': [vice_2],
+                'Smokes kreteks': [vice_5],
+                'Smokes cigars, cheroots or cigarillos': [vice_8],
+                'Smokes water pipe': [vice_3],
+                'Snuff by mouth': [vice_6],
+                'Chews betel quid with tobacco': [vice_9],
+                "Husband's desire for children": [husband_desire],
+                'Exposure': [swp_1],
+                'Unmet need': [unmet_need_1],
+                'Unmet need (definition 2)': [unmet_need_2],
+                'Unmet need for contraception (definition 3)': [unmet_need_3],
             })
 
             # Show prediction
