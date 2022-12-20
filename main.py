@@ -35,8 +35,3 @@ elif tabs == "Recommender System":
     pages["Recommender System"].app()
 elif tabs == "Dashboard":
     pages["Dashboard"].app()
-
-
-# st.sidebar.title("Navigation")
-# page = st.sidebar.selectbox("Select your page", tuple(pages.keys()))
-# pages[page].app()

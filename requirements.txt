@@ -5,3 +5,4 @@ sklearn
 matplotlib
 seaborn
 category_encoders
+st_on_hover_tabs
